@@ -82,7 +82,8 @@ We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>ro
 
 ```python
 
-conda create -n hidisc_ssl
+conda create -n hsat
+conda activate hsat
 conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install timm
 pip install wandb
