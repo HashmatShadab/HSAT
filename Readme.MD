@@ -1,7 +1,7 @@
 # **HSAT:Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology**
 
 [Hashmat Shadab Malik](https://github.com/HashmatShadab),
-[ Asif Hanif](https://github.com/asif-hanif),
+[Shahina Kunhimon](https://github.com/ShahinaKK),
 [Muzammal Naseer](https://scholar.google.ch/citations?user=tM9xKA8AAAAJ&hl=en),
 [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en),
 and [Salman Khan](https://salman-h-khan.github.io),
