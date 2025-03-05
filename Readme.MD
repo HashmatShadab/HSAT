@@ -75,46 +75,23 @@ fields like healthcare,
 
 ```python
 
-conda
-create - n
-hsat
-python = 3.10
-conda
-install
-pytorch == 2.0
-.1
-torchvision == 0.15
-.2
-torchaudio == 2.0
-.2
-pytorch - cuda = 11.7 - c
-pytorch - c
-nvidia
-pip
-install
-packaging
-pip
-install
-causal - conv1d == 1.1
-.1
-pip
-install
-mamba - ssm == 1.1
-.4
-pip
-install
-torchinfo
-timm
-numba
-pip
-install
-monai == 1.3
-.0
+conda create -n hidisc_ssl
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install timm
+pip install wandb
+pip install tifffile
+pip install dill
+pip install hydra-core --upgrade
+pip install matplotlib
+pip install scikit-learn
+pip install tqdm
+pip install torchmetrics
+pip install pandas
+pip install opencv-python
+pip install gdown
+pip install ftfy regex tqdm
+pip install transformers
 
-# Others
-pip
-install - r
-req.txt
 ```
 
 <a name="Data-Preparation"/>
