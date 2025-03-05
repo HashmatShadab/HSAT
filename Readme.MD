@@ -425,7 +425,53 @@ The evaluation logs for target models will be saved in the same folder as from w
 loaded.
 
 
+## Quantitative Evaluation 📊
 
+We provide detailed instructions for reproducing Robust-LLaVA results on both untargeted and targeted attacks across various image captioning and visual question answering benchmarks. Please refer to [**docs/EVAL.md**](./docs/EVAL.md) for the step-by-step guide.
+
+<div align="center">
+    <img src="./assets/table2.png" alt="Robust-LLaVA Diagram" width="800">
+
+<p align="justify">
+<b>On <b>untargeted attacks</b>, results across </b><b>six datasets</b>, covering <i>image
+                        captioning</i> and <i>visual question answering</i> tasks,
+                        both <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and
+                        <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span> maintain
+                        <i>reasonable clean performance</i> while achieving <b>substantial robustness improvements</b>
+                        over <span><b><a href="https://arxiv.org/abs/2402.12336" target="_blank"
+                                         style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>
+                        and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                        style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
+                        against
+                        adversarial attacks, striking the <i>right balance</i> between <b>clean</b> and <b>adversarial
+                        generalization</b>.
+</p>
+</div>
+
+<div align="center">
+    <img src="./assets/table3_4.png" alt="Robust-LLaVA Diagram" width="800">
+
+<p align="justify">
+Both <span><a href="https://arxiv.org/abs/2402.12336" target="_blank"
+                                         style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></span>
+                        and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                        style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
+                        show <i>robustness</i>
+                        against
+                        <b>targeted attacks</b>, but <i>break</i> in a few cases at high perturbation budgets (<span><b>ε = 8/255</b></span>).
+                        In contrast, <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and
+                        <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span>
+                        remain <b>fully robust</b> to these attacks even at high perturbation budgets.
+                        This indicates a <i>strong resistance</i> to generating the attacker's targeted output.
+                        The robustness of <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> stands out further as
+                        it continues to generate
+                        <i>high-quality captions</i> for adversarial examples, maintaining a <b>strong CIDEr score</b>.
+</p>
+</div>
+
+
+
+---
 
 
 <a name="bibtex"/>
