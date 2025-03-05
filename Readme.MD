@@ -433,13 +433,14 @@ We provide detailed instructions for reproducing Robust-LLaVA results on both un
     <img src="./assets/table2.png" alt="Robust-LLaVA Diagram" width="800">
 
 <p align="justify">
-<b>We observe that target vision models trained using our <span><tt>HSAT</tt></span> framework are 
+We observe that target vision models trained using our <tt>HSAT</tt> framework are 
 significantly more robust against transferability of adversarial examples crafted across different 
-surrogate models. On average, <span><tt>HSAT</tt></span> trained target models show a performance 
+surrogate models. On average, <tt>HSAT</tt> trained target models show a performance 
 drop of around <b>3-4%</b>, while target models trained using 
-<span><b><a href="https://arxiv.org/abs/your-citation-link" target="_blank" style="color: #007bff; text-decoration: underline;">Hidisc</a></b></span> 
+<a href="https://arxiv.org/abs/your-citation-link" target="_blank" style="color: #007bff; text-decoration: underline;">Hidisc</a> 
 show a performance drop of around <b>25-30%</b>.
 </p>
+
 </div>
 
 <div align="center">
