@@ -26,7 +26,6 @@ Official PyTorch implementation
 
 <hr />
 
-<hr />
 <div align="center">
     <img src="./assets/conceptfigure.png" alt="Robust-LLaVA Diagram" width="800">
 
