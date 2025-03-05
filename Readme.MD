@@ -4,7 +4,7 @@
 [Shahina Kunhimon](https://github.com/ShahinaKK),
 [Muzammal Naseer](https://scholar.google.ch/citations?user=tM9xKA8AAAAJ&hl=en),
 [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en),
-and [Salman Khan](https://salman-h-khan.github.io),
+and [Salman Khan](https://salman-h-khan.github.io)
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2406.08486)
 
