@@ -433,18 +433,12 @@ We provide detailed instructions for reproducing Robust-LLaVA results on both un
     <img src="./assets/table2.png" alt="Robust-LLaVA Diagram" width="800">
 
 <p align="justify">
-<b>On <b>untargeted attacks</b>, results across </b><b>six datasets</b>, covering <i>image
-                        captioning</i> and <i>visual question answering</i> tasks,
-                        both <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and
-                        <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span> maintain
-                        <i>reasonable clean performance</i> while achieving <b>substantial robustness improvements</b>
-                        over <span><b><a href="https://arxiv.org/abs/2402.12336" target="_blank"
-                                         style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>
-                        and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
-                                        style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
-                        against
-                        adversarial attacks, striking the <i>right balance</i> between <b>clean</b> and <b>adversarial
-                        generalization</b>.
+<b>We observe that target vision models trained using our <span><tt>HSAT</tt></span> framework are 
+significantly more robust against transferability of adversarial examples crafted across different 
+surrogate models. On average, <span><tt>HSAT</tt></span> trained target models show a performance 
+drop of around <b>3-4%</b>, while target models trained using 
+<span><b><a href="https://arxiv.org/abs/your-citation-link" target="_blank" style="color: #007bff; text-decoration: underline;">Hidisc</a></b></span> 
+show a performance drop of around <b>25-30%</b>.
 </p>
 </div>
 
