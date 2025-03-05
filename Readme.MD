@@ -33,14 +33,14 @@ Official PyTorch implementation
 > data remains limited.
 > Existing self-supervised adversarial training methods overlook the hierarchical structure of histopathology images,
 > where patient-slide-patch
-> relationships provide valuable discriminative signals. To address this, we propose \emph{Hierarchical Self-Supervised
-> Adversarial Training} (\texttt{HSAT}),
+> relationships provide valuable discriminative signals. To address this, we propose Hierarchical Self-Supervised
+> Adversarial Training (HSAT),
 > which exploits these properties to craft adversarial examples using multi-level contrastive learning and integrate it
 > into adversarial training for enhanced robustness.
-> We evaluate \texttt{HSAT} on multiclass histopathology %cancer diagnosis
-> dataset OpenSRH and the results show that \texttt{HSAT} outperforms existing methods from both biomedical and natural
-> image domains. \texttt{HSAT} enhances robustness, achieving an average gain of 54.31\% in the white-box setting and
-> reducing performance drops to 3-4\% in the black-box setting, compared to 25-30\% for the baseline. These results set a
+> We evaluate HSAT on multiclass histopathology %cancer diagnosis
+> dataset OpenSRH and the results show that HSAT outperforms existing methods from both biomedical and natural
+> image domains. HSAT enhances robustness, achieving an average gain of 54.31% in the white-box setting and
+> reducing performance drops to 3-4% in the black-box setting, compared to 25-30% for the baseline. These results set a
 > new benchmark for adversarial training in this domain, paving the way for more robust models. Our code and pretrained
 > models will be made publicly available.
 
