@@ -52,13 +52,8 @@ fields like healthcare,
     <img src="./assets/conceptfigure.png" alt="Robust-LLaVA Diagram" width="800">
 
 <p align="justify">
-We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>robust representations</i> via self-supervised contrastive learning. The inner maximization step, <b>𝓛<sub>max</sub></b>, generates adversarial perturbations by crafting a <i>hierarchy-wise attack</i>. The outer minimization step, <b>𝓛<sub>min</sub></b>, updates the encoder <b>f<sub>θ</sub></b> to minimize the hierarchical contrastive loss, encouraging <b>robust feature representations</b> across <i>patch</i>, <i>slide</i>, and <i>patient</i> levels. The overall objective is given by:
+We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>robust representations</i> via self-supervised contrastive learning. The inner maximization step, <b>𝓛<sub>max</sub></b>, generates adversarial perturbations by crafting a <i>hierarchy-wise attack</i>. The outer minimization step, <b>𝓛<sub>min</sub></b>, updates the encoder <b>f<sub>θ</sub></b> to minimize the hierarchical contrastive loss, encouraging <b>robust feature representations</b> across <i>patch</i>, <i>slide</i>, and <i>patient</i> levels.
 </p>
-
-\[
-\min_{\theta} \ \mathcal{L}_{\min}(\theta) = \mathbb{E}_{x \sim \mathcal{D}} \sum_{l} \mathcal{L}_{con}^{l}(f_{\theta}(x_{adv}), f_{\theta}(\mathcal{I})), \ \forall l \in \{\text{patch, slide, patient}\}
-\]
-
 
 </div>
 
