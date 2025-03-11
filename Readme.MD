@@ -228,7 +228,6 @@ The logs and trained models will be saved in the `Results` folder.
 
 ## 🛡️ Robustness against White-Box Attacks
 
-### 1. White box Attacks
 
 ```python
 # Pixel-based PGD attack on Volumetric Segmentation models
@@ -325,38 +324,6 @@ In the above scripts replace the following arguments:
 
 The generated adversarial images and logs will be saved in the same folder as from where the model checkpoint was
 loaded.
-
-### 2. White box Frequency Attacks
-
-After generating adversarial examples using the above scripts, frequency analysis can be performed on them using
-Low-Pass and High-Pass filters. For evaluating the robustness of volumetric segmentation models against
-low and high frequency attacks, the following scripts can be used:
-
-```python
-# Frequency Analysis on Volumetric Segmentation models trained on BTCV dataset
-bash
-scripts / btcv / attack_freq.sh
-
-# Frequency Analysis on Volumetric Segmentation models trained on Hecktor dataset
-bash
-scripts / hecktor / attack_freq.sh
-
-# Frequency Analysis on Volumetric Segmentation models trained on ACDC dataset
-bash
-scripts / acdc / attack_freq.sh
-
-# Frequency Analysis on Volumetric Segmentation models trained on Abdomen-CT dataset
-bash
-scripts / abdomen / attack_freq.sh
-```
-
-In the above scripts replace the following arguments:
-
-`<DATA_DIR>`: Path to the dataset
-
-`<model_names>`: name of the models and their corresponding checkpoints in `<ckpt_paths>`
-
-The evaluation logs will be saved in the same folder as from where the adversarial examples were loaded.
 
 
 <a name="Robustness-against-Transfer-Based-Black-Box-Attacks"/>
