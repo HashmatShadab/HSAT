@@ -59,7 +59,6 @@ We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>ro
 
 <hr />
 
-
 ## Contents
 
 1) [Installation](#Installation)
@@ -82,23 +81,67 @@ We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>ro
 
 ```python
 
-conda create -n hsat
-conda activate hsat
-conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
-pip install timm
-pip install wandb
-pip install tifffile
-pip install dill
-pip install hydra-core --upgrade
-pip install matplotlib
-pip install scikit-learn
-pip install tqdm
-pip install torchmetrics
-pip install pandas
-pip install opencv-python
-pip install gdown
-pip install ftfy regex tqdm
-pip install transformers
+conda
+create - n
+hsat
+conda
+activate
+hsat
+conda
+install
+pytorch == 2.1
+.2
+torchvision == 0.16
+.2
+torchaudio == 2.1
+.2
+pytorch - cuda = 11.8 - c
+pytorch - c
+nvidia
+pip
+install
+timm
+pip
+install
+wandb
+pip
+install
+tifffile
+pip
+install
+dill
+pip
+install
+hydra - core - -upgrade
+pip
+install
+matplotlib
+pip
+install
+scikit - learn
+pip
+install
+tqdm
+pip
+install
+torchmetrics
+pip
+install
+pandas
+pip
+install
+opencv - python
+pip
+install
+gdown
+pip
+install
+ftfy
+regex
+tqdm
+pip
+install
+transformers
 
 ```
 
@@ -108,21 +151,21 @@ pip install transformers
 
 ### 📦 Available Models
 
-| Model                                     | Identifier                  |
-|-------------------------------------------|-----------------------------|
-| ResNet-50 (Scratch)                       | `resnet50`                  |
-| ResNet-50 (ImageNet Pretrained)           | `resnet50_timm_pretrained`  |
-| ResNet-50 (Adversarial ImageNet Pretrained)| `resnet50_at`               |
-| WResNet-50 (ImageNet Pretrained)          | `wresnet50_normal`          |
-| WResNet-50 (Adversarial ImageNet Pretrained) | `wresnet50_at`              |
-| ResNet-101 (ImageNet Pretrained)          | `resnet101_normal`          |
-| ResNet-101 (Adversarial ImageNet Pretrained)| `resnet101_at`              |
+| Model                                        | Identifier                 |
+|----------------------------------------------|----------------------------|
+| ResNet-50 (Scratch)                          | `resnet50`                 |
+| ResNet-50 (ImageNet Pretrained)              | `resnet50_timm_pretrained` |
+| ResNet-50 (Adversarial ImageNet Pretrained)  | `resnet50_at`              |
+| WResNet-50 (ImageNet Pretrained)             | `wresnet50_normal`         |
+| WResNet-50 (Adversarial ImageNet Pretrained) | `wresnet50_at`             |
+| ResNet-101 (ImageNet Pretrained)             | `resnet101_normal`         |
+| ResNet-101 (Adversarial ImageNet Pretrained) | `resnet101_at`             |
 
 ---
 
 ### 📊 OpenSRH Dataset
 
-To access the **OpenSRH** dataset, please submit a data request [here](https://opensrh.mlins.org).  
+To access the **OpenSRH** dataset, please submit a data request [here](https://opensrh.mlins.org).
 
 ---
 
@@ -131,101 +174,143 @@ To access the **OpenSRH** dataset, please submit a data request [here](https://o
 <a name="Training"/>
 
 # 🚀 Training
+
 ## 📚 Baseline Non-Adversarial Training
 
-To train different vision models on the OpenSRH dataset with the baseline non-adversarial training approach from HiDisc, run the following command:
+To train different vision models on the OpenSRH dataset with the baseline non-adversarial training approach from HiDisc,
+run the following command:
 
 ```python
-torchrun --nproc_per_node=<NUM_GPUS>  main.py \
-data.db_root=<DATA_PATH> data.dynamic_aug=False data.dynamic_aug_version=v0 \
-model.backbone=<MODEL_NAME> \
-training.batch_size=<BATCH_SIZE> training.only_adv=False \
-training.attack.name=none  training.attack.eps=8 training.attack.warmup_epochs=0 training.attack.loss_type=p_s_pt \
-out_dir=Results/Baseline/<MODEL_NAME>_exp1 \
-wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1 wandb.use=True
+torchrun - -nproc_per_node = < NUM_GPUS > main.py
+    data.db_root = < DATA_PATH > data.dynamic_aug = False
+data.dynamic_aug_version = v0
+    model.backbone = < MODEL_NAME >
+                       training.batch_size = < BATCH_SIZE > training.only_adv = False
+    training.attack.name = none
+training.attack.eps = 8
+training.attack.warmup_epochs = 0
+training.attack.loss_type = p_s_pt
+    out_dir = Results / Baseline / < MODEL_NAME > _exp1
+    wandb.exp_name = Baseline_backbone_ < MODEL_NAME > _exp1
+wandb.use = True
 ```
 
 - **`<NUM_GPUS>`**: Number of GPUs used for distributed training.
 - **`<DATA_PATH>`**: Path to the OpenSRH dataset.
 - **`<MODEL_NAME>`**: Name of the vision model backbone (for example `resnet50`, `resnet50_at`)
-- **`<BATCH_SIZE>`**: Number of patients per batch during training.  
+- **`<BATCH_SIZE>`**: Number of patients per batch during training.
 - **`data.dynamic_aug=False:`** Disables dynamic augmentation, keeping the dataset unchanged for baseline training.
 - **`training.only_adv=False:`** Ensures that only clean samples (non-adversarial) are used for training.
 - **`training.attack.name=none:`** Disables adversarial attacks for baseline training.
 - **`out_dir=Results/Baseline/<MODEL_NAME>_exp1:`** Path to save the training results.
-- **`wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1:`** Sets the experiment name for tracking in Weights & Biases (W&B).
+- **`wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1:`** Sets the experiment name for tracking in Weights & Biases (
+  W&B).
 - **`wandb.use=True:`** Enables logging with Weights & Biases for visualizing training metrics.
 
 ## 📚 Hierarchical Self-Supervised Adversarial Training (HSAT)
 
-To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach, run the following command:
+To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial
+Training (HSAT) approach, run the following command:
 
 ```python
-torchrun --nproc_per_node=<NUM_GPUS>  main.py \
-data.db_root=<DATA_PATH> data.dynamic_aug=True data.dynamic_aug_version=v0 \
-model.backbone=<MODEL_NAME> \
-training.batch_size=<BATCH_SIZE> training.only_adv=True \
-training.attack.name=pgd  training.attack.eps=8 training.attack.warmup_epochs=5000 training.attack.loss_type=p_s_pt \
-out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
-wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 wandb.use=True
+torchrun - -nproc_per_node = < NUM_GPUS > main.py
+    data.db_root = < DATA_PATH > data.dynamic_aug = True
+data.dynamic_aug_version = v0
+    model.backbone = < MODEL_NAME >
+                       training.batch_size = < BATCH_SIZE > training.only_adv = True
+    training.attack.name = pgd
+training.attack.eps = 8
+training.attack.warmup_epochs = 5000
+training.attack.loss_type = p_s_pt
+    out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
+    wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
+wandb.use = True
 ```
-- **`training.attack.name=pgd:`** Adversarial attack  used for HSAT training.
 
-- **`training.attack.eps=8`:** Sets the maximum perturbation allowed for adversarial examples.  
+- **`training.attack.name=pgd:`** Adversarial attack used for HSAT training.
+
+- **`training.attack.eps=8`:** Sets the maximum perturbation allowed for adversarial examples.
 
 - **`training.attack.warmup_epochs=0:`** Number of warm-up epochs to linearly increase the adversarial attack strength.
 
-- **`training.attack.loss_type=p_s_pt:`** Specifies the maximization loss type for crafting adversarial examples during training.
-  - `p_s_pt` is a combination of the patch-level, slide-level, and patient-level contrastive losses.
-  - `pt` is the patch-level contrastive loss.
-  - `s_pt` is the combination of the slide-level and patch-level contrastive losses.
+- **`training.attack.loss_type=p_s_pt:`** Specifies the maximization loss type for crafting adversarial examples during
+  training.
+    - `p_s_pt` is a combination of the patch-level, slide-level, and patient-level contrastive losses.
+    - `pt` is the patch-level contrastive loss.
+    - `s_pt` is the combination of the slide-level and patch-level contrastive losses.
 
-To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach but using 
+To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial
+Training (HSAT) approach but using
 different levels of heirarchical contrastive losses during the training, run the following command:
 
 ```python
 # HAT-Patch Testing the effect of patch loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
-torchrun --nproc_per_node=<NUM_GPUS>  main.py \
-data.db_root=<DATA_PATH> data.dynamic_aug=True data.dynamic_aug_version=v0 \
-data.hidisc.num_slide_samples=1 data.hidisc.num_patch_samples=1 \
-model.backbone=<MODEL_NAME> \
-training.batch_size=<BATCH_SIZE> training.only_adv=True \
-training.attack.name=pgd  training.attack.eps=8 training.attack.warmup_epochs=5000 training.attack.loss_type=p_s_pt \
-out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
-wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 wandb.use=True
+torchrun - -nproc_per_node = < NUM_GPUS > main.py
+    data.db_root = < DATA_PATH > data.dynamic_aug = True
+data.dynamic_aug_version = v0
+    data.hidisc.num_slide_samples = 1
+data.hidisc.num_patch_samples = 1
+    model.backbone = < MODEL_NAME >
+                       training.batch_size = < BATCH_SIZE > training.only_adv = True
+    training.attack.name = pgd
+training.attack.eps = 8
+training.attack.warmup_epochs = 5000
+training.attack.loss_type = p_s_pt
+    out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
+    wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
+wandb.use = True
 ```
 
 ```python
 #  HAT-Slide Testing the effect of patch-slide loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
-torchrun --nproc_per_node=<NUM_GPUS>  main.py \
-data.db_root=<DATA_PATH> data.dynamic_aug=True data.dynamic_aug_version=v0 \
-data.hidisc.num_patch_samples=1 \
-model.backbone=<MODEL_NAME> \
-training.batch_size=<BATCH_SIZE> training.only_adv=True \
-training.attack.name=pgd  training.attack.eps=8 training.attack.warmup_epochs=5000 training.attack.loss_type=p_s_pt \
-out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
-wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 wandb.use=True
+torchrun - -nproc_per_node = < NUM_GPUS > main.py
+    data.db_root = < DATA_PATH > data.dynamic_aug = True
+data.dynamic_aug_version = v0
+    data.hidisc.num_patch_samples = 1
+    model.backbone = < MODEL_NAME >
+                       training.batch_size = < BATCH_SIZE > training.only_adv = True
+    training.attack.name = pgd
+training.attack.eps = 8
+training.attack.warmup_epochs = 5000
+training.attack.loss_type = p_s_pt
+    out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
+    wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
+wandb.use = True
 ```
 
-
-We provide bash scripts to train different vision models on the OpenSRH dataset with the baseline and proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach. 
+We provide bash scripts to train different vision models on the OpenSRH dataset with the baseline and proposed
+Hierarchical Self-Supervised Adversarial Training (HSAT) approach.
 
 ```python
-bash scripts/training.sh <NUM_GPUS> <BATCH_SIZE> <EXP_NUM> <MODEL_NAME> <DATA_PATH>
+bash
+scripts / training.sh < NUM_GPUS > < BATCH_SIZE > < EXP_NUM > < MODEL_NAME > < DATA_PATH >
 
 # For example, training ResNet-50(scratch) on OpenSRH dataset with Baseline training using 4 GPU, batch size 16
-bash scripts/training.sh 4 16 1 resnet50 path/to/dataset
+bash
+scripts / training.sh
+4
+16
+1
+resnet50
+path / to / dataset
 
 # For example, training ResNet-50(scratch) on OpenSRH dataset with HSAT training using 4 GPU, batch size 16
-bash scripts/training.sh 4 16 2 resnet50 path/to/dataset
+bash
+scripts / training.sh
+4
+16
+2
+resnet50
+path / to / dataset
 ```
-Please check the `scripts/training.sh` file for more details. The logs and trained models will be saved in the `Results` folder.
+
+Please check the `scripts/training.sh` file for more details. The logs and trained models will be saved in the `Results`
+folder.
 
 
 <a name="Robustness-against-White-Box-Attacks"/>
 
 ## 🛡️ Robustness against White-Box Attacks
-
 
 ```python
 # Pixel-based PGD attack on Volumetric Segmentation models
@@ -400,13 +485,9 @@ loaded.
     <img src="./assets/table1.png" alt="Robust-LLaVA Diagram" width="800">
 
 <p align="justify">
-We observe that target vision models trained using our <tt>HSAT</tt> framework are 
-significantly more robust against transferability of adversarial examples crafted across different 
-surrogate models. On average, <tt>HSAT</tt> trained target models show a performance 
-drop of around <b>3-4%</b>, while target models trained using 
-<a href="https://arxiv.org/abs/your-citation-link" target="_blank" style="color: #007bff; text-decoration: underline;">Hidisc</a> 
-show a performance drop of around <b>25-30%</b>.
+We observe that vision models trained using our <tt>HSAT</tt> framework exhibit significantly higher adversarial robustness in white-box settings compared to baseline methods. Under the PGD attack at ϵ = <tt>8/255</tt> using a ResNet-50 backbone, <tt>HSAT</tt> achieves gains of <b>43.90%</b>, <b>60.70%</b>, and <b>58.33%</b> in patch, slide, and patient classification, respectively, compared to non-adversarial hierarchical training methods. Additionally, <tt>HSAT</tt> outperforms instance-level adversarial training (<tt>HSAT-Patch</tt>) by <b>6.68%</b>, <b>10.51%</b>, and <b>10%</b> across the same tasks. Despite a slight drop in clean accuracy compared to non-adversarial methods, <tt>HSAT</tt> maintains a superior clean performance with improvements of <b>15.68%</b>, <b>17.12%</b>, and <b>20%</b> over <tt>HSAT-Patch</tt>.
 </p>
+
 
 
 <div align="center">
