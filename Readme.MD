@@ -130,78 +130,98 @@ To access the **OpenSRH** dataset, please submit a data request [here](https://o
 
 <a name="Training"/>
 
-## 🚀 Training
+# 🚀 Training
+## 📚 Baseline Non-Adversarial Training
+
+To train different vision models on the OpenSRH dataset with the baseline non-adversarial training approach from HiDisc, run the following command:
 
 ```python
-# Training  on BTCV dataset
-python
-training.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-14 - -dataset
-btcv - -data_dir = < DATA_PATH > --json_list
-dataset_synapse_18_12.json
---batch_size = 3 - -max_epochs
-5000 - -optim_lr = 1e-4 - -lrschedule = warmup_cosine - -infer_overlap = 0.5 - -val_every
-15 - -save_model_dir = "./Results"
-
-# Training  on Hecktor dataset
-python
-training.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-3 - -dataset
-hecktor - -data_dir = < DATA_PATH > --json_list
-dataset_hecktor.json
---batch_size = 3 - -max_epochs
-500 - -optim_lr = 1e-4 - -lrschedule = warmup_cosine - -infer_overlap = 0.5 - -val_every
-15 - -save_model_dir = "./Results"
-
-# Training  on ACDC dataset
-python
-training.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-4 - -dataset
-acdc - -data_dir = < DATA_PATH > --json_list
-dataset_acdc_140_20_.json
---batch_size = 3 - -max_epochs
-5000 - -optim_lr = 1e-4 - -lrschedule = warmup_cosine - -infer_overlap = 0.5 - -val_every
-15 - -save_model_dir = "./Results"
-
-# Training  on Abdomen-CT dataset
-python
-training.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-14 - -dataset
-abdomen - -data_dir = < DATA_PATH > --json_list
-dataset_abdomen.json
---batch_size = 3 - -max_epochs
-5000 - -optim_lr = 1e-4 - -lrschedule = warmup_cosine - -infer_overlap = 0.5 - -val_every
-15 - -save_model_dir = "./Results"
+torchrun --nproc_per_node=<NUM_GPUS>  main.py \
+data.db_root=<DATA_PATH> data.dynamic_aug=False data.dynamic_aug_version=v0 \
+model.backbone=<MODEL_NAME> \
+training.batch_size=<BATCH_SIZE> training.only_adv=False \
+training.attack.name=none  training.attack.eps=8 training.attack.warmup_epochs=0 training.attack.loss_type=p_s_pt \
+out_dir=Results/Baseline/<MODEL_NAME>_exp1 \
+wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1 wandb.use=True
 ```
 
-Follwing arguments can be passed for `--model_name`: `unet, unetr, swin_unetr, seg_resnet, umamba_bot, umamba_enc`
+- **`<NUM_GPUS>`**: Number of GPUs used for distributed training.
+- **`<DATA_PATH>`**: Path to the OpenSRH dataset.
+- **`<MODEL_NAME>`**: Name of the vision model backbone (for example `resnet50`, `resnet50_at`)
+- **`<BATCH_SIZE>`**: Number of patients per batch during training.  
+- **`data.dynamic_aug=False:`** Disables dynamic augmentation, keeping the dataset unchanged for baseline training.
+- **`training.only_adv=False:`** Ensures that only clean samples (non-adversarial) are used for training.
+- **`training.attack.name=none:`** Disables adversarial attacks for baseline training.
+- **`out_dir=Results/Baseline/<MODEL_NAME>_exp1:`** Path to save the training results.
+- **`wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1:`** Sets the experiment name for tracking in Weights & Biases (W&B).
+- **`wandb.use=True:`** Enables logging with Weights & Biases for visualizing training metrics.
 
-To run training across all models and datasets, run the following scripts:
+## 📚 Hierarchical Self-Supervised Adversarial Training (HSAT)
+
+To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach, run the following command:
 
 ```python
-# Training on BTCV dataset for all models
-bash
-scripts / btcv / training.sh
+torchrun --nproc_per_node=<NUM_GPUS>  main.py \
+data.db_root=<DATA_PATH> data.dynamic_aug=True data.dynamic_aug_version=v0 \
+model.backbone=<MODEL_NAME> \
+training.batch_size=<BATCH_SIZE> training.only_adv=True \
+training.attack.name=pgd  training.attack.eps=8 training.attack.warmup_epochs=5000 training.attack.loss_type=p_s_pt \
+out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
+wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 wandb.use=True
+```
+- **`training.attack.name=pgd:`** Adversarial attack  used for HSAT training.
 
-# Training on Hecktor dataset for all models
-bash
-scripts / hecktor / training.sh
+- **`training.attack.eps=8`:** Sets the maximum perturbation allowed for adversarial examples.  
 
-# Training on ACDC dataset for all models
-bash
-scripts / acdc / training.sh
+- **`training.attack.warmup_epochs=0:`** Number of warm-up epochs to linearly increase the adversarial attack strength.
 
-# Training on Abdomen-CT dataset for all models
-bash
-scripts / abdomen / training.sh
+- **`training.attack.loss_type=p_s_pt:`** Specifies the maximization loss type for crafting adversarial examples during training.
+  - `p_s_pt` is a combination of the patch-level, slide-level, and patient-level contrastive losses.
+  - `pt` is the patch-level contrastive loss.
+  - `s_pt` is the combination of the slide-level and patch-level contrastive losses.
+
+To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach but using 
+different levels of heirarchical contrastive losses during the training, run the following command:
+
+```python
+# HAT-Patch Testing the effect of patch loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
+torchrun --nproc_per_node=<NUM_GPUS>  main.py \
+data.db_root=<DATA_PATH> data.dynamic_aug=True data.dynamic_aug_version=v0 \
+data.hidisc.num_slide_samples=1 data.hidisc.num_patch_samples=1 \
+model.backbone=<MODEL_NAME> \
+training.batch_size=<BATCH_SIZE> training.only_adv=True \
+training.attack.name=pgd  training.attack.eps=8 training.attack.warmup_epochs=5000 training.attack.loss_type=p_s_pt \
+out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
+wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 wandb.use=True
 ```
 
-The logs and trained models will be saved in the `Results` folder with the following structure:
-`Results/{model_name}/data_{dataset_name}/natural/`
+```python
+#  HAT-Slide Testing the effect of patch-slide loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
+torchrun --nproc_per_node=<NUM_GPUS>  main.py \
+data.db_root=<DATA_PATH> data.dynamic_aug=True data.dynamic_aug_version=v0 \
+data.hidisc.num_patch_samples=1 \
+model.backbone=<MODEL_NAME> \
+training.batch_size=<BATCH_SIZE> training.only_adv=True \
+training.attack.name=pgd  training.attack.eps=8 training.attack.warmup_epochs=5000 training.attack.loss_type=p_s_pt \
+out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
+wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 wandb.use=True
+```
+
+
+We provide bash scripts to train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach. 
+
+```python
+bash scripts/training.sh <NUM_GPUS> <BATCH_SIZE> <EXP_NUM> <MODEL_NAME> <DATA_PATH>
+
+# For example, training ResNet-50(scratch) on OpenSRH dataset with Baseline training using 4 GPU, batch size 16
+bash scripts/training.sh 4 16 1 resnet50 path/to/dataset
+
+# For example, training ResNet-50(scratch) on OpenSRH dataset with HSAT training using 4 GPU, batch size 16
+bash scripts/training.sh 4 16 2 resnet50 path/to/dataset
+```
+Please check the `scripts/training.sh` file for more details.
+
+The logs and trained models will be saved in the `Results` folder.
 
 
 <a name="Robustness-against-White-Box-Attacks"/>
