@@ -80,68 +80,23 @@ We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>ro
 ## 💿 Installation
 
 ```python
-
-conda
-create - n
-hsat
-conda
-activate
-hsat
-conda
-install
-pytorch == 2.1
-.2
-torchvision == 0.16
-.2
-torchaudio == 2.1
-.2
-pytorch - cuda = 11.8 - c
-pytorch - c
-nvidia
-pip
-install
-timm
-pip
-install
-wandb
-pip
-install
-tifffile
-pip
-install
-dill
-pip
-install
-hydra - core - -upgrade
-pip
-install
-matplotlib
-pip
-install
-scikit - learn
-pip
-install
-tqdm
-pip
-install
-torchmetrics
-pip
-install
-pandas
-pip
-install
-opencv - python
-pip
-install
-gdown
-pip
-install
-ftfy
-regex
-tqdm
-pip
-install
-transformers
+conda create -n hsat
+conda activate hsat
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install timm
+pip install wandb
+pip install tifffile
+pip install dill
+pip install hydra-core --upgrade
+pip install matplotlib
+pip install scikit-learn
+pip install tqdm
+pip install torchmetrics
+pip install pandas
+pip install opencv-python
+pip install gdown
+pip install ftfy regex tqdm
+pip install transformers
 
 ```
 
@@ -181,18 +136,20 @@ To train different vision models on the OpenSRH dataset with the baseline non-ad
 run the following command:
 
 ```python
-torchrun - -nproc_per_node = < NUM_GPUS > main.py
-data.db_root = < DATA_PATH > data.dynamic_aug = False
-data.dynamic_aug_version = v0
-model.backbone = < MODEL_NAME >
-training.batch_size = < BATCH_SIZE > training.only_adv = False
-training.attack.name = none
-training.attack.eps = 8
-training.attack.warmup_epochs = 0
-training.attack.loss_type = p_s_pt
-out_dir = Results / Baseline / < MODEL_NAME > _exp1
-wandb.exp_name = Baseline_backbone_ < MODEL_NAME > _exp1
-wandb.use = True
+torchrun --nproc_per_node=<NUM_GPUS> main.py \
+    data.db_root=<DATA_PATH> \
+    data.dynamic_aug=False \
+    data.dynamic_aug_version=v0 \
+    model.backbone=<MODEL_NAME> \
+    training.batch_size=<BATCH_SIZE> \
+    training.only_adv=False \
+    training.attack.name=none \
+    training.attack.eps=8 \
+    training.attack.warmup_epochs=0 \
+    training.attack.loss_type=p_s_pt \
+    out_dir=Results/Baseline/<MODEL_NAME>_exp1 \
+    wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1 \
+    wandb.use=True
 ```
 
 - **`<NUM_GPUS>`**: Number of GPUs used for distributed training.
@@ -213,18 +170,20 @@ To train different vision models on the OpenSRH dataset with the proposed Hierar
 Training (HSAT) approach, run the following command:
 
 ```python
-torchrun - -nproc_per_node = < NUM_GPUS > main.py
-data.db_root = < DATA_PATH > data.dynamic_aug = True
-data.dynamic_aug_version = v0
-model.backbone = < MODEL_NAME >
-training.batch_size = < BATCH_SIZE > training.only_adv = True
-training.attack.name = pgd
-training.attack.eps = 8
-training.attack.warmup_epochs = 5000
-training.attack.loss_type = p_s_pt
-out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
-wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
-wandb.use = True
+torchrun --nproc_per_node=<NUM_GPUS> main.py \
+    data.db_root=<DATA_PATH> \
+    data.dynamic_aug=True \
+    data.dynamic_aug_version=v0 \
+    model.backbone=<MODEL_NAME> \
+    training.batch_size=<BATCH_SIZE> \
+    training.only_adv=True \
+    training.attack.name=pgd \
+    training.attack.eps=8 \
+    training.attack.warmup_epochs=5000 \
+    training.attack.loss_type=p_s_pt \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
+    wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
+    wandb.use=True
 ```
 
 - **`training.attack.name=pgd:`** Adversarial attack used for HSAT training.
@@ -245,63 +204,54 @@ different levels of heirarchical contrastive losses during the training, run the
 
 ```python
 # HAT-Patch Testing the effect of patch loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
-torchrun - -nproc_per_node = < NUM_GPUS > main.py
-data.db_root = < DATA_PATH > data.dynamic_aug = True
-data.dynamic_aug_version = v0
-data.hidisc.num_slide_samples = 1
-data.hidisc.num_patch_samples = 1
-model.backbone = < MODEL_NAME >
-training.batch_size = < BATCH_SIZE > training.only_adv = True
-training.attack.name = pgd
-training.attack.eps = 8
-training.attack.warmup_epochs = 5000
-training.attack.loss_type = p_s_pt
-out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
-wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
-wandb.use = True
+torchrun --nproc_per_node=<NUM_GPUS> main.py \
+    data.db_root=<DATA_PATH> \
+    data.dynamic_aug=True \
+    data.dynamic_aug_version=v0 \
+    data.hidisc.num_slide_samples=1 \
+    data.hidisc.num_patch_samples=1 \
+    model.backbone=<MODEL_NAME> \
+    training.batch_size=<BATCH_SIZE> \
+    training.only_adv=True \
+    training.attack.name=pgd \
+    training.attack.eps=8 \
+    training.attack.warmup_epochs=5000 \
+    training.attack.loss_type=p_s_pt \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
+    wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
+    wandb.use=True
 ```
 
 ```python
 #  HAT-Slide Testing the effect of patch-slide loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
-torchrun - -nproc_per_node = < NUM_GPUS > main.py
-data.db_root = < DATA_PATH > data.dynamic_aug = True
-data.dynamic_aug_version = v0
-data.hidisc.num_patch_samples = 1
-model.backbone = < MODEL_NAME >
-training.batch_size = < BATCH_SIZE > training.only_adv = True
-training.attack.name = pgd
-training.attack.eps = 8
-training.attack.warmup_epochs = 5000
-training.attack.loss_type = p_s_pt
-out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
-wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
-wandb.use = True
+torchrun --nproc_per_node=<NUM_GPUS> main.py \
+    data.db_root=<DATA_PATH> \
+    data.dynamic_aug=True \
+    data.dynamic_aug_version=v0 \
+    data.hidisc.num_patch_samples=1 \
+    model.backbone=<MODEL_NAME> \
+    training.batch_size=<BATCH_SIZE> \
+    training.only_adv=True \
+    training.attack.name=pgd \
+    training.attack.eps=8 \
+    training.attack.warmup_epochs=5000 \
+    training.attack.loss_type=p_s_pt \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
+    wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
+    wandb.use=True
 ```
 
 We provide bash scripts to train different vision models on the OpenSRH dataset with the baseline and proposed
 Hierarchical Self-Supervised Adversarial Training (HSAT) approach.
 
 ```python
-bash
-scripts / training.sh < NUM_GPUS > < BATCH_SIZE > < EXP_NUM > < MODEL_NAME > < DATA_PATH >
+bash scripts/training.sh <NUM_GPUS> <BATCH_SIZE> <EXP_NUM> <MODEL_NAME> <DATA_PATH>
 
 # For example, training ResNet-50(scratch) on OpenSRH dataset with Baseline training using 4 GPU, batch size 16
-bash
-scripts / training.sh
-4
-16
-1
-resnet50
-path / to / dataset
+bash scripts/training.sh 4 16 1 resnet50 path/to/dataset
 
 # For example, training ResNet-50(scratch) on OpenSRH dataset with HSAT training using 4 GPU, batch size 16
-bash
-scripts / training.sh
-4
-16
-2
-resnet50
-path / to / dataset
+bash scripts/training.sh 4 16 2 resnet50 path/to/dataset
 ```
 
 Please check the `scripts/training.sh` file for more details. The logs and trained models will be saved in the `Results`
