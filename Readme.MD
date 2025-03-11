@@ -182,16 +182,16 @@ run the following command:
 
 ```python
 torchrun - -nproc_per_node = < NUM_GPUS > main.py
-    data.db_root = < DATA_PATH > data.dynamic_aug = False
+data.db_root = < DATA_PATH > data.dynamic_aug = False
 data.dynamic_aug_version = v0
-    model.backbone = < MODEL_NAME >
-                       training.batch_size = < BATCH_SIZE > training.only_adv = False
-    training.attack.name = none
+model.backbone = < MODEL_NAME >
+training.batch_size = < BATCH_SIZE > training.only_adv = False
+training.attack.name = none
 training.attack.eps = 8
 training.attack.warmup_epochs = 0
 training.attack.loss_type = p_s_pt
-    out_dir = Results / Baseline / < MODEL_NAME > _exp1
-    wandb.exp_name = Baseline_backbone_ < MODEL_NAME > _exp1
+out_dir = Results / Baseline / < MODEL_NAME > _exp1
+wandb.exp_name = Baseline_backbone_ < MODEL_NAME > _exp1
 wandb.use = True
 ```
 
@@ -214,16 +214,16 @@ Training (HSAT) approach, run the following command:
 
 ```python
 torchrun - -nproc_per_node = < NUM_GPUS > main.py
-    data.db_root = < DATA_PATH > data.dynamic_aug = True
+data.db_root = < DATA_PATH > data.dynamic_aug = True
 data.dynamic_aug_version = v0
-    model.backbone = < MODEL_NAME >
-                       training.batch_size = < BATCH_SIZE > training.only_adv = True
-    training.attack.name = pgd
+model.backbone = < MODEL_NAME >
+training.batch_size = < BATCH_SIZE > training.only_adv = True
+training.attack.name = pgd
 training.attack.eps = 8
 training.attack.warmup_epochs = 5000
 training.attack.loss_type = p_s_pt
-    out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
-    wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
+out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
+wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_exp2
 wandb.use = True
 ```
 
@@ -246,35 +246,35 @@ different levels of heirarchical contrastive losses during the training, run the
 ```python
 # HAT-Patch Testing the effect of patch loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
 torchrun - -nproc_per_node = < NUM_GPUS > main.py
-    data.db_root = < DATA_PATH > data.dynamic_aug = True
+data.db_root = < DATA_PATH > data.dynamic_aug = True
 data.dynamic_aug_version = v0
-    data.hidisc.num_slide_samples = 1
+data.hidisc.num_slide_samples = 1
 data.hidisc.num_patch_samples = 1
-    model.backbone = < MODEL_NAME >
-                       training.batch_size = < BATCH_SIZE > training.only_adv = True
-    training.attack.name = pgd
+model.backbone = < MODEL_NAME >
+training.batch_size = < BATCH_SIZE > training.only_adv = True
+training.attack.name = pgd
 training.attack.eps = 8
 training.attack.warmup_epochs = 5000
 training.attack.loss_type = p_s_pt
-    out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
-    wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
+out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
+wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13
 wandb.use = True
 ```
 
 ```python
 #  HAT-Slide Testing the effect of patch-slide loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
 torchrun - -nproc_per_node = < NUM_GPUS > main.py
-    data.db_root = < DATA_PATH > data.dynamic_aug = True
+data.db_root = < DATA_PATH > data.dynamic_aug = True
 data.dynamic_aug_version = v0
-    data.hidisc.num_patch_samples = 1
-    model.backbone = < MODEL_NAME >
-                       training.batch_size = < BATCH_SIZE > training.only_adv = True
-    training.attack.name = pgd
+data.hidisc.num_patch_samples = 1
+model.backbone = < MODEL_NAME >
+training.batch_size = < BATCH_SIZE > training.only_adv = True
+training.attack.name = pgd
 training.attack.eps = 8
 training.attack.warmup_epochs = 5000
 training.attack.loss_type = p_s_pt
-    out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
-    wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
+out_dir = Results / Adv / < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
+wandb.exp_name = Adv_backbone_ < MODEL_NAME > _dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14
 wandb.use = True
 ```
 
