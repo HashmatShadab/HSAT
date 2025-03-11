@@ -396,6 +396,18 @@ loaded.
 
 ## Quantitative Evaluation 📊
 
+<div align="center">
+    <img src="./assets/table1.png" alt="Robust-LLaVA Diagram" width="800">
+
+<p align="justify">
+We observe that target vision models trained using our <tt>HSAT</tt> framework are 
+significantly more robust against transferability of adversarial examples crafted across different 
+surrogate models. On average, <tt>HSAT</tt> trained target models show a performance 
+drop of around <b>3-4%</b>, while target models trained using 
+<a href="https://arxiv.org/abs/your-citation-link" target="_blank" style="color: #007bff; text-decoration: underline;">Hidisc</a> 
+show a performance drop of around <b>25-30%</b>.
+</p>
+
 
 <div align="center">
     <img src="./assets/table2.png" alt="Robust-LLaVA Diagram" width="800">
