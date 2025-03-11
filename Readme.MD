@@ -208,7 +208,7 @@ wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_onl
 ```
 
 
-We provide bash scripts to train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach. 
+We provide bash scripts to train different vision models on the OpenSRH dataset with the baseline and proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach. 
 
 ```python
 bash scripts/training.sh <NUM_GPUS> <BATCH_SIZE> <EXP_NUM> <MODEL_NAME> <DATA_PATH>
