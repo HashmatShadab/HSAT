@@ -396,9 +396,6 @@ loaded.
 
 ## Quantitative Evaluation 📊
 
-We provide detailed instructions for reproducing Robust-LLaVA results on both untargeted and targeted attacks across
-various image captioning and visual question answering benchmarks. Please refer to [**docs/EVAL.md**](./docs/EVAL.md)
-for the step-by-step guide.
 
 <div align="center">
     <img src="./assets/table2.png" alt="Robust-LLaVA Diagram" width="800">
