@@ -263,100 +263,43 @@ folder.
 ## 🛡️ Robustness against White-Box Attacks
 
 ```python
-# Pixel-based PGD attack on Volumetric Segmentation models
-python
-wb_attack.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel < NUM_CLASSES > --checkpoint_path < MODEL_CKPT_PATH > --dataset < DATASET_NAME >
---data_dir = < DATA_PATH > --json_list < DATA_JSON_FILE > --attack_name
-pgd - -eps
-8 - -steps
-20
-
-# Pixel-based CosPGD attack on Volumetric Segmentation models
-python
-wb_attack.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel < NUM_CLASSES > --checkpoint_path < MODEL_CKPT_PATH > --dataset < DATASET_NAME >
---data_dir = < DATA_PATH > --json_list < DATA_JSON_FILE > --attack_name
-cospgd - -eps
-8 - -steps
-20
-
-# Pixel-based FGSM attack on Volumetric Segmentation models
-python
-wb_attack.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel < NUM_CLASSES > --checkpoint_path < MODEL_CKPT_PATH > --dataset < DATASET_NAME >
---data_dir = < DATA_PATH > --json_list < DATA_JSON_FILE > --attack_name
-fgsm - -eps
-8
-
-# Pixel-based GN attack on Volumetric Segmentation models
-python
-wb_attack.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel < NUM_CLASSES > --checkpoint_path < MODEL_CKPT_PATH > --dataset < DATASET_NAME >
---data_dir = < DATA_PATH > --json_list < DATA_JSON_FILE > --attack_name
-fgsm - -std
-8
-
-# Frequency-based VAFA attack on Volumetric Segmentation models
-python
-wb_attack.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel < NUM_CLASSES > --checkpoint_path < MODEL_CKPT_PATH > --dataset < DATASET_NAME >
---data_dir = < DATA_PATH > --json_list < DATA_JSON_FILE > --attack_name
-vafa - 3
-d - --q_max
-30 - -steps
-20 - -block_size
-32
-32
-32 - -use_ssim_loss
-True
+python adv_eval_knn.py --data_db_root <DATA_PATH>  --model_backbone <MODEL_NAME>  --eval_ckpt_path <CKPT_PATH> --save_results_path <CKPT_DIR>/eval_knn_results /
+--eps <EPSILON> --steps <STEPS> --eval_predict_batch_size <EVAL_BATCH_SIZE> --attack_name <ATTACK_NAME> 
 ```
 
-Available attacks: Fast Gradient Sign Method ([FGSM](https://arxiv.org/abs/1412.6572)), Projected Gradient
-Descent ([PGD](https://arxiv.org/abs/1706.06083)), Cosine Projected Gradient
-Descent ([CosPGD](https://arxiv.org/abs/2302.02213)), Gaussian Noise (GN), and Volumetric Adversarial Frequency
-Attack ([VAFA](https://arxiv.org/abs/2307.07269))
+- `--eps`: Perturbation budget for adversarial attacks
+- `--steps`: Number of attack steps for iterative attacks
+- `--eval_predict_batch_size`: Batch size for evaluation
+- `--attack_name`: Name of the attack to be used
+  - `pgd_r` for PGD attack with random initialization
+  - `bim_r` for BIM attack with random initialization
+  - `mifgsn_r` for MIFGSM attack with random initialization
+- `--eval_ckpt_path`: Path to the model checkpoint
+- `--save_results_path`: Path to save the evaluation results
 
-`--eps`: Perturbation budget for Pixel-based adversarial attacks
+Results are saved in the checkpoint directory under the `eval_knn_results` folder.
 
-`--std`: Perturbation budget for Gaussian Noise attack
-
-`--q_max`: Maximum quantization level for VAFA attack
-
-`--block_size`: Block size for VAFA attack
-
-`--use_ssim_loss`: Use SSIM loss for VAFA attack
-
-`--steps`: Number of attack steps for iterative attacks
-
-To run the above attacks across all models and datasets, run the following scripts:
+We provide bash scripts to evaluate different vision models trained on the OpenSRH dataset with the baseline and proposed
+Hierarchical Self-Supervised Adversarial Training (HSAT) approach.
 
 ```python
-# Pixel and Frequency-based attacks on Volumetric Segmentation models trained on BTCV dataset
-bash
-scripts / btcv / attacks.sh
+bash scripts/eval_knn_whitebox_attack.sh <EXP_NUM> <MODEL_NAME> <EPSILON> <STEPs> <BATCH_SIZE>
 
-# Pixel and Frequency-based attacks on Volumetric Segmentation models trained on Hecktor dataset
-bash
-scripts / hecktor / attacks.sh
+# After training using the bash scripts provided above, for example, training ResNet-50(scratch) on OpenSRH dataset with Baseline training using 4 GPU, batch size 16
+bash scripts/training.sh 4 16 1 resnet50 path/to/dataset
+# you can evaluate the models using the following commands:
+# To evaluate ResNet-50(scratch) trained on OpenSRH dataset with Baseline method against white-box attacks (PGD, BIM, MIFGSM) at epsilon=8/255, steps=10, batch size=16
+bash scripts/eval_knn_whitebox_attack.sh 1 resnet50 8 10 16
 
-# Pixel and Frequency-based attacks on Volumetric Segmentation models trained on ACDC dataset
-bash
-scripts / acdc / attacks.sh
+# Similarly, training ResNet-50(scratch) on OpenSRH dataset with HSAT training using 4 GPU, batch size 16
+bash scripts/training.sh 4 16 2 resnet50 path/to/dataset
 
-# Pixel and Frequency-based attacks on Volumetric Segmentation models trained on Abdomen-CT dataset
-bash
-scripts / abdomen / attacks.sh
+# you can evaluate the models using the following commands:
+# To evaluate ResNet-50(scratch) trained on OpenSRH dataset with HSAT method against white-box attacks (PGD, BIM, MIFGSM) at epsilon=8/255, steps=10, batch size=16
+bash scripts/eval_knn_whitebox_attack.sh 2 resnet50 8 10 16
 ```
 
-In the above scripts replace the following arguments:
-
-`<DATA_DIR>`: Path to the dataset
-
-`<model_names>`: name of the models and their corresponding checkpoints in `<ckpt_paths>`
-
-The generated adversarial images and logs will be saved in the same folder as from where the model checkpoint was
-loaded.
+For more details, please check the `scripts/eval_knn_whitebox_attack.sh` and `scripts/adv_knn.sh` files.
 
 
 <a name="Robustness-against-Transfer-Based-Black-Box-Attacks"/>
