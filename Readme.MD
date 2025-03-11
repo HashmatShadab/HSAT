@@ -63,8 +63,8 @@ We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>ro
 ## Contents
 
 1) [Installation](#Installation)
-2) [Data Preparation](#Data-Preparation)
-3) [Training of HSAT](#Training-of-Volumetric-Segmentation-Models)
+2) [Models and Data Preparation](#Models-and-Data-Preparation)
+3) [Training](#Training)
 4) [Robustness against White-Box Attacks](#Robustness-against-White-Box-Attacks)
 5) [Robustness against Transfer-Based Black-Box Attacks](#Robustness-against-Transfer-Based-Black-Box-Attacks)
 6) [BibTeX](#bibtex)
@@ -102,36 +102,35 @@ pip install transformers
 
 ```
 
-<a name="Data-Preparation"/>
+<a name="Models-and-Data-Preparation"/>
 
-## 🏁 Data Preparation
+## 🛠️ Models and Data Preparation
 
-### Models available:
+### 📦 Available Models
 
-1. UNet : `unet`
-2. UNETR : `unetr`
-3. Swin-UNETR : `swin_unetr`
-4. SegResNet : `segresnet`
-5. UMamba-B : `umamba_bot`
-6. UMamba-E : `umamba_enc`
+| Model                                     | Identifier                  |
+|-------------------------------------------|-----------------------------|
+| ResNet-50 (Scratch)                       | `resnet50`                  |
+| ResNet-50 (ImageNet Pretrained)           | `resnet50_timm_pretrained`  |
+| ResNet-50 (Adversarial ImageNet Pretrained)| `resnet50_at`               |
+| WResNet-50 (ImageNet Pretrained)          | `wresnet50_normal`          |
+| WResNet-50 (Adversarial ImageNet Pretrained) | `wresnet50_at`              |
+| ResNet-101 (ImageNet Pretrained)          | `resnet101_normal`          |
+| ResNet-101 (Adversarial ImageNet Pretrained)| `resnet101_at`              |
 
-### Datasets available:
+---
 
-1. BTCV: `btcv`
-2. Hecktor: `hecktor`
-3. ACDC: `acdc`
-4. Abdomen-CT: `abdomen`
+### 📊 OpenSRH Dataset
 
-Download the datasets
-from [here](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/hashmat_malik_mbzuai_ac_ae/EgoYFgwWOrpIqD6kgNBkyQcBGMTyyRfaweZHGidJNZ1n1g?e=jqghVo)
-and put them in the `datasets3d` folder.
+To access the **OpenSRH** dataset, please submit a data request [here](https://opensrh.mlins.org).  
 
-Copy the json files from `json_files` folder and put them in the respective dataset folder.
+---
 
 
-<a name="Training-of-HSAT"/>
 
-## 🚀 Training of HSAT Models
+<a name="Training"/>
+
+## 🚀 Training
 
 ```python
 # Training  on BTCV dataset
