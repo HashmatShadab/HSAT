@@ -219,9 +219,7 @@ bash scripts/training.sh 4 16 1 resnet50 path/to/dataset
 # For example, training ResNet-50(scratch) on OpenSRH dataset with HSAT training using 4 GPU, batch size 16
 bash scripts/training.sh 4 16 2 resnet50 path/to/dataset
 ```
-Please check the `scripts/training.sh` file for more details.
-
-The logs and trained models will be saved in the `Results` folder.
+Please check the `scripts/training.sh` file for more details. The logs and trained models will be saved in the `Results` folder.
 
 
 <a name="Robustness-against-White-Box-Attacks"/>
