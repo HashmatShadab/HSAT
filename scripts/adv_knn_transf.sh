@@ -14,9 +14,14 @@ load_source_from_ssl=${6:-"True"}
 
 ############### Target models from Experiment 1 ####################
 
+
 target_model="resnet50"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/resnet50_exp1/checkpoint_40000.pth"
+
+
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -33,6 +38,9 @@ done
 target_model="resnet50_at"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/resnet50_at_exp1/checkpoint_40000.pth"
+
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -51,6 +59,9 @@ target_model="resnet50_timm_pretrained"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/resnet50_timm_pretrained_exp1/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
+
 
 # loop over all the checkpoints in the directory ending with .pth
 for ckpt_path in $source_ckpt_dir/checkpoint_40000.pth; do
@@ -67,6 +78,9 @@ done
 target_model="wresnet50_normal"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/wresnet50_normal_exp1/checkpoint_40000.pth"
+
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -86,6 +100,8 @@ target_model="wresnet50_at"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/wresnet50_at_exp1/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -104,6 +120,8 @@ target_model="resnet101_normal"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/resnet101_normal_exp1/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -123,6 +141,8 @@ target_model="resnet101_at"
 target_exp_no=1
 target_ckpt_dir="Results/Baseline/resnet101_at_exp1/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -143,6 +163,9 @@ target_exp_no=2
 target_ckpt_dir="Results/Adv/resnet50_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
 
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
+
 
 # loop over all the checkpoints in the directory ending with .pth
 for ckpt_path in $source_ckpt_dir/checkpoint_40000.pth; do
@@ -160,6 +183,9 @@ target_exp_no=2
 target_ckpt_dir="Results/Adv/resnet50_at_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
 
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
+
 
 # loop over all the checkpoints in the directory ending with .pth
 for ckpt_path in $source_ckpt_dir/checkpoint_40000.pth; do
@@ -176,6 +202,8 @@ target_model="resnet50_timm_pretrained"
 target_exp_no=2
 target_ckpt_dir="Results/Adv/resnet50_timm_pretrained_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -195,6 +223,9 @@ target_model="wresnet50_normal"
 target_exp_no=2
 target_ckpt_dir="Results/Adv/wresnet50_normal_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
+
 
 # loop over all the checkpoints in the directory ending with .pth
 for ckpt_path in $source_ckpt_dir/checkpoint_40000.pth; do
@@ -211,6 +242,8 @@ target_model="wresnet50_at"
 target_exp_no=2
 target_ckpt_dir="Results/Adv/wresnet50_at_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -228,6 +261,8 @@ target_model="resnet101_normal"
 target_exp_no=2
 target_ckpt_dir="Results/Adv/resnet101_normal_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -244,6 +279,9 @@ done
 target_model="resnet101_at"
 target_exp_no=2
 target_ckpt_dir="Results/Adv/resnet101_at_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2/checkpoint_40000.pth"
+
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -264,6 +302,8 @@ target_model="resnet50"
 target_exp_no=3
 target_ckpt_dir="Results/Adv/resnet50_dynamicaug_true_epsilon_warmup_5000_exp3/checkpoint_80000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -281,6 +321,8 @@ target_model="resnet50_at"
 target_exp_no=3
 target_ckpt_dir="Results/Adv/resnet50_at_dynamicaug_true_epsilon_warmup_5000_exp3/checkpoint_80000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth
@@ -299,6 +341,8 @@ target_model="resnet50_timm_pretrained"
 target_exp_no=3
 target_ckpt_dir="Results/Adv/resnet50_timm_pretrained_dynamicaug_true_epsilon_warmup_5000_exp3/checkpoint_80000.pth"
 
+echo "Evaluating Transferability of adversarial examples generated on ${source_model} source models trained using  (EXP ${source_exp_no})  with checkpoint path ${source_ckpt_dir}"
+echo "on ${target_model} target models trained using (EXP ${target_exp_no}) with checkpoint path ${target_ckpt_dir}"
 
 
 # loop over all the checkpoints in the directory ending with .pth

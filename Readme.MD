@@ -157,9 +157,9 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
 - **`<MODEL_NAME>`**: Name of the vision model backbone (for example `resnet50`, `resnet50_at`)
 - **`<BATCH_SIZE>`**: Number of patients per batch during training.
 - **`data.dynamic_aug=False:`** Disables dynamic augmentation, keeping the dataset unchanged for baseline training.
-- **`training.only_adv=False:`** Ensures that only clean samples (non-adversarial) are used for training.
+- **`training.only_adv=False:`** if True ensures that only adversarial samples  are used during adversarial training.
 - **`training.attack.name=none:`** Disables adversarial attacks for baseline training.
-- **`out_dir=Results/Baseline/<MODEL_NAME>_exp1:`** Path to save the training results.
+- **`out_dir=Results/Baseline/<MODEL_NAME>_exp1:`** Path to save the training results (exp1 for baseline training).
 - **`wandb.exp_name=Baseline_backbone_<MODEL_NAME>_exp1:`** Sets the experiment name for tracking in Weights & Biases (
   W&B).
 - **`wandb.use=True:`** Enables logging with Weights & Biases for visualizing training metrics.
@@ -181,7 +181,7 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     training.attack.eps=8 \
     training.attack.warmup_epochs=5000 \
     training.attack.loss_type=p_s_pt \
-    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 (exp2 for HSAT training) \
     wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
     wandb.use=True
 ```
@@ -197,6 +197,8 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     - `p_s_pt` is a combination of the patch-level, slide-level, and patient-level contrastive losses.
     - `pt` is the patch-level contrastive loss.
     - `s_pt` is the combination of the slide-level and patch-level contrastive losses.
+- **`training.only_adv:`** Set to False if you want to include clean samples as well during adversarial training.
+
 
 To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial
 Training (HSAT) approach but using
@@ -217,7 +219,7 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     training.attack.eps=8 \
     training.attack.warmup_epochs=5000 \
     training.attack.loss_type=p_s_pt \
-    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 (exp13 for HSAT-Patch) \
     wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
     wandb.use=True
 ```
@@ -236,7 +238,7 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     training.attack.eps=8 \
     training.attack.warmup_epochs=5000 \
     training.attack.loss_type=p_s_pt \
-    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 (exp14 for HSAT-Slide) \
     wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
     wandb.use=True
 ```
@@ -330,12 +332,14 @@ To evaluate any target model on the adversarial examples, run the following scri
 - `<STEPS>`: Number of attack steps for iterative attacks.
 
 
-Furthermore, bash scripts are provided to evaluate transferability of adversarial examples across different models(given
-the adversarial examples are generated first across all models and datasets):
+Furthermore, bash scripts are provided to evaluate transferability of adversarial examples generated using a surrogate
+model on target models trained using the baseline and proposed Hierarchical Self-Supervised Adversarial Training (HSAT).
 
 ```python
-
+bash scripts/eval_knn_blackbox_attack.sh <SOURCE_MODEL_EXP_NUM>
 ```
+Please check the `scripts/eval_knn_blackbox_attack.sh` and `scripts/adv_knn_transf.sh` files for more details. The scripts can be easily
+modified to evaluate different vision models on the OpenSRH dataset with the baseline and proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approach.
 
 
 ## Quantitative Evaluation 📊
