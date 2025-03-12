@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta content="DESCRIPTION META TAG" name="description">
+    <meta content="SOCIAL MEDIA TITLE TAG" property="og:title"/>
+    <meta content="SOCIAL MEDIA DESCRIPTION TAG TAG" property="og:description"/>
+    <meta content="URL OF THE WEBSITE" property="og:url"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta content="static/image/your_banner_image.png" property="og:image"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+
+
+    <meta content="TWITTER BANNER TITLE META TAG" name="twitter:title">
+    <meta content="TWITTER BANNER DESCRIPTION META TAG" name="twitter:description">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta content="static/images/your_twitter_banner_image.png" name="twitter:image">
+    <meta content="summary_large_image" name="twitter:card">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta content="KEYWORDS SHOULD BE PLACED HERE" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+
+    <title>Robust-LLaVA: On the Effectiveness of Large-Scale Robust Image Encoders for Multi-modal Large Language
+        Models</title>
+    <link href="static/images/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link href="static/css/bulma.min.css" rel="stylesheet">
+    <link href="static/css/bulma-carousel.min.css" rel="stylesheet">
+    <link href="static/css/bulma-slider.min.css" rel="stylesheet">
+    <link href="static/css/fontawesome.all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+          rel="stylesheet">
+    <link href="static/css/index.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Robust-LLaVA: On the Effectiveness of Large-Scale Robust
+                        Image Encoders for Multi-modal Large Language Models</h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                        <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=2Ft7r4AAAAAJ&hl=en" target="_blank">Hashmat Shadab Malik</a><sup>1</sup>,</span>
+                        <span class="author-block">
+                  <a href="https://scholar.google.com.pk/citations?hl=en&user=d7QL4wkAAAAJ&view_op=list_works&sortby=pubdate"
+                     target="_blank">Fahad Shamshad</a><sup>1</sup>,</span>
+                        <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=tM9xKA8AAAAJ&hl=en" target="_blank">Muzammal Naseer</a><sup>2</sup>,</span>
+                        </span>
+                        <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=2qx0RnEAAAAJ&hl=en" target="_blank">Karthik Nandakumar</a><sup>3</sup>,</span>
+                        </span>
+                        <span class="author-block">
+                        <a href="https://scholar.google.com/citations?user=zvaeYnUAAAAJ&hl=en" target="_blank">Fahad Shahbaz Khan</a><sup>1,4</sup>,</span>
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=M59O9lkAAAAJ&hl=en" target="_blank">Salman Khan</a><sup>1,5</sup>
+                    </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Mohamed bin Zayed University of Artificial Intelligence, UAE<br>
+                    <span class="author-block"><sup>2</sup>Center of Secure Cyber-Physical Security Systems, Khalifa University, UAE<br>
+                                            <span class="author-block"><sup>3</sup>Michigan State University</span><br>
+                    <span class="author-block"><sup>4</sup>Linköping University <br>
+                      <span class="author-block"><sup>5</sup>Australian National University <br>(Under Review)</span>
+
+
+                        <!--                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>-->
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+<!--                            <span class="link-block">-->
+<!--                        <a class="external-link button is-normal is-rounded is-dark"-->
+<!--                           href="https://arxiv.org/pdf/2403.04701.pdf"-->
+<!--                           target="_blank">-->
+<!--                        <span class="icon">-->
+<!--                          <i class="fas fa-file-pdf"></i>-->
+<!--                        </span>-->
+<!--                        <span>Paper</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+
+<!--                            &lt;!&ndash; Supplementary PDF link &ndash;&gt;-->
+<!--                            <span class="link-block">-->
+<!--                      <a class="external-link button is-normal is-rounded is-dark" href="static/pdfs/sample.pdf"-->
+<!--                         target="_blank">-->
+<!--                      <span class="icon">-->
+<!--                        <i class="fas fa-file-pdf"></i>-->
+<!--                      </span>-->
+<!--                      <span>Supplementary</span>-->
+<!--                    </a>-->
+<!--                  </span>-->
+     <!-- ArXiv abstract Link -->
+                            <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2502.01576"
+                     target="_blank">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <!-- Github link -->
+                            <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark"
+                       href="https://github.com/HashmatShadab/Robust-LLaVA"
+                       target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                                                        <!-- Model Zoo (Google Drive) link -->
+            <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark"
+                   href="https://drive.google.com/drive/folders/1mt5zbiWi_ZYNJyDCpJ33Zc3AFZ9NxaLr?usp=sharing"
+                   target="_blank">
+                    <span class="icon">
+                        <i class="fas fa-hdd"></i> <!-- Hard drive icon -->
+                    </span>
+                    <span>Model Weights</span>
+                </a>
+            </span>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--&lt;!&ndash; Teaser video&ndash;&gt;-->
+<!--<section class="hero teaser">-->
+<!--    <div class="container is-max-desktop">-->
+<!--        <div class="hero-body">-->
+<!--            <video autoplay controls height="100%" id="tree" loop muted poster="">-->
+<!--                &lt;!&ndash; Your video here &ndash;&gt;-->
+<!--                <source src="static/videos/banner_video.mp4"-->
+<!--                        type="video/mp4">-->
+<!--            </video>-->
+<!--            <h2 class="subtitle has-text-centered">-->
+<!--                Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at,-->
+<!--                placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.-->
+<!--            </h2>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; End teaser video &ndash;&gt;-->
+
+
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+<img src="./static/images/alog_align.png"><br>
+            <h2 class="subtitle has-text-centered">
+                <p align="justify">
+                    Current multi-modal large language models (MLLMs) struggle to achieve <b>high adversarial robustness</b> while maintaining strong
+<b>vision-language reasoning</b>. Methods such as <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                style="color: #007bff; text-decoration: underline;">TeCoA</a></b></span>, <span><b><a href="https://arxiv.org/abs/2212.07016" target="_blank"
+                                style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>, and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span> perform constrained adversarial
+fine-tuning of CLIP to <i>preserve the generalization capabilities</i> of the pre-trained model.
+
+However, this limited adversarial training results in only <b>modest robustness gains</b> when the model is integrated into an
+MLLM framework. Moreover, the misalignment between adversarial CLIP training objectives and MLLMs' <b>generative understanding</b>
+creates a <b>semantic alignment gap</b>, impairing MLLMs' ability to perform <i>complex visual reasoning</i>.
+
+This leads us to explore whether current <b>large-scale adversarially pre-trained vision encoders</b>, which contain
+<i>rich robust representations</i>, can exhibit <b>strong semantic alignment</b> within the MLLM framework.
+
+                <div style="background-color: #f0f8ff; padding: 10px; border-radius: 5px; margin-bottom: 10px; text-align: justify;">
+    <b><span style="color: blue;">Left:</span></b> We investigate the <b>multimodal alignment of robust encoders</b> by aligning
+    the feature space of robust encoders using a <b>linear layer</b> with the pre-trained CLIP model, which has a strong multimodal
+    feature representation. We then align robust encoders with CLIP’s text encoder to evaluate <b>robust zero-shot performance</b>,
+    in order to assess their robust multimodal alignment.
+</div>
+
+<div style="background-color: #ffe4e1; padding: 10px; border-radius: 5px; text-align: justify;">
+    <b><span style="color: blue;">Right:</span></b> The results demonstrate a <b>strong correlation</b> between <b>model scale</b>,
+    <b>training strategy</b>, and <b>robustness preservation</b> during CLIP alignment. <i>Small-scale models</i> (e.g., ViT-B and
+    ResNet-101) suffer <b>significant robustness degradation</b> post-alignment, with accuracy dropping <i>below 60%</i> across
+    all datasets. In contrast, <b>large-scale models</b> (ViT-H and ViT-G) successfully <b>retain their robustness</b> while acquiring
+<i>robust zero-shot capabilities</i>. Leveraging this insight, we integrate these robust encoders into the <b>LLaVA framework</b>,
+achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in MLLMs <i>without additional specialized adversarial training</i>.
+</div>
+
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <img src="./static/images/fig1.png">
+            <h2 class="subtitle has-text-centered">
+                <p align="justify"><b>Robust score of Robust-LLaVA<sup>4</sup> on downstream vision-language tasks
+                    with adversarial examples crafted at
+                    &epsilon; = 4/255:</b> The original CLIP exhibits <i>minimal robustness</i>.
+
+                    Our proposed <b>Robust-LLaVA<sup>4</sup></b> <b>outperforms</b> state-of-the-art
+                    <span><b><a href="https://arxiv.org/abs/2402.12336" target="_blank"
+                                style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>
+                    and
+                    <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
+                    in <b>robustness score across all tasks and diverse datasets</b>, while <i>maintaining high clean
+                        performance</i>. (Accuracy is reported for VQAv2 and TextVQA, while CIDER score is reported for Flickr30k and COCO).
+
+                </p>
+            </h2>
+        </div>
+    </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Multi-modal Large Language Models (MLLMs) have demonstrated impressive capabilities in
+                        vision-language tasks, but their reliance on visual processing introduces critical security
+                        vulnerabilities. Their vision encoders remain susceptible to adversarial perturbations that can
+                        induce hallucinations, manipulate responses, or bypass safety mechanisms while maintaining
+                        coherent language generation. Current approaches attempt to address this by adversarially
+                        fine-tuning CLIP vision encoders on ImageNet-scale data, but exhibit inherent limitations in
+                        both robustness and generalization due to the restricted scale and diversity of adversarial
+                        training.
+                        In this work, we present an alternative approach by leveraging vision encoders adversarially
+                        pre-trained on billion-scale image-text pairs.
+                        Our analysis reveals two principal contributions:
+                        (1) the extensive scale and diversity of adversarial pre-training enables these encoders to
+                        demonstrate superior robustness against diverse adversarial threats, ranging from imperceptible
+                        perturbations to advanced jailbreaking attempts, and (2) end-to-end MLLM optimization with these
+                        robust encoders facilitates enhanced adaptation of language components to robust visual
+                        features, substantially outperforming existing plug-and-play methodologies on complex reasoning
+                        tasks.
+                        Through systematic evaluation across visual question-answering, image captioning, and jail-break
+                        attacks, we demonstrate that MLLMs trained with these robust encoders achieve superior
+                        adversarial robustness while maintaining favorable clean performance. Our framework achieves 2x
+                        and 1.5x average robustness gains in captioning and VQA tasks, respectively, and delivers over
+                        10% improvement against advanced jailbreaking attacks compared to state-of-the-art methods.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Untargetted Attack on Image Captioning Task</h2>
+        </div>
+    </div>
+</div>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="carousel results-carousel" id="results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_1.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_2.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_3.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_4.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_5.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_6.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_7.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_8.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_9.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_10.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_11.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_12.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_13.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_14.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_U_15.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Targetted Attack on Image Captioning Task</h2>
+        </div>
+    </div>
+</div>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="carousel results-carousel" id="results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_T_1.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Targetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_T_2.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Targetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_T_3.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Targetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_T_4.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Targetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_T_5.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Targetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/IC_T_6.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Targetted Attack on Image Captioning Task
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Untargetted Attack on Visual Question Answering(VQA) Task</h2>
+        </div>
+    </div>
+</div>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="carousel results-carousel" id="results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_1.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_2.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_3.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_4.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_5.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_6.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_7.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_8.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_9.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/VQA_U_10.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Untargetted Attack on Visual Question Answering(VQA) Task
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Common Corruptions on Image Captioning Task</h2>
+        </div>
+    </div>
+</div>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="carousel results-carousel" id="results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_1.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_2.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_3.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_4.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_5.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_6.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_7.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_8.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/CC_9.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Common Corruptions on Image Captioning Task
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Increasing Corruption Severity</h2>
+        </div>
+    </div>
+</div>
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="carousel results-carousel" id="results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img
+                            alt="MY ALT TEXT"
+                            src="static/images/CC_L_1.png"
+                            style="display: block; max-height: 1000px; margin: 0 auto; object-fit: contain; width: auto;"
+                    />
+                    <h2 class="subtitle has-text-centered">
+                        Performance Under Increasing Corruption Severity. Visualization of how different robust vision
+                        encoders in LLaVA respond to corruption applied at varying severity levels.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img
+                            alt="MY ALT TEXT"
+                            src="static/images/CC_L_2.png"
+                            style="display: block; max-height: 1000px; margin: 0 auto; object-fit: contain; width: auto;"
+                    />
+                    <h2 class="subtitle has-text-centered">
+                        Performance Under Increasing Corruption Severity. Visualization of how different robust vision
+                        encoders in LLaVA respond to corruption applied at varying severity levels.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End image carousel -->
+
+<!-- End image carousel -->
+
+<!-- Tabular Results -->
+<!--  Results will be in the form of images-->
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Quantitative Results</h2>
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table1.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        On <b>untargeted attacks</b>, results across <b>six datasets</b>, covering <i>image
+                        captioning</i> and <i>visual question answering</i> tasks,
+                        both <span><b>Robust-LLaVA<sup>G</sup></b></span> and
+                        <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span> maintain
+                        <i>reasonable clean performance</i> while achieving <b>substantial robustness improvements</b>
+                        over <span><b><a href="https://arxiv.org/abs/2402.12336" target="_blank"
+                                         style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>
+                        and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                        style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
+                        against
+                        adversarial attacks, striking the <i>right balance</i> between <b>clean</b> and <b>adversarial
+                        generalization</b>.
+
+                    </h2>
+                </div>
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table2.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Both <span><b><a href="https://arxiv.org/abs/2402.12336" target="_blank"
+                                         style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>
+                        and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                        style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
+                        show <i>robustness</i>
+                        against
+                        <b>targeted attacks</b>, but <i>break</i> in a few cases at high perturbation budgets (<span><b>ε = 8/255</b></span>).
+                        In contrast, <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and
+                        <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span>
+                        remain <b>fully robust</b> to these attacks even at high perturbation budgets.
+                        This indicates a <i>strong resistance</i> to generating the attacker's targeted output.
+                        The robustness of <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> stands out further as
+                        it continues to generate
+                        <i>high-quality captions</i> for adversarial examples, maintaining a <b>strong CIDEr score</b>.
+                    </h2>
+                </div>
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/transfer-attack-ensemble.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        <b>Robustness evaluation</b> of <b>MLLMs</b> against <i>ensemble-based SSA-CWA transfer
+                        attacks</i> using the <span><b><a href="https://arxiv.org/abs/2406.07057" target="_blank"
+                                                          style="color: #007bff; text-decoration: underline;">MultiTrust</a></b></span>
+                        benchmarking framework.
+                        Adversarial examples are crafted using an <i>ensemble of diverse vision models</i>, with
+                        perturbations designed to <i>mislead object recognition</i>.
+
+                        Model performance is assessed on <b>100 relabeled NIPS17 images</b>, with <b>GPT-4</b>
+                        determining the correctness of generated descriptions.
+                        The figure illustrates that <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and
+                        <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span> achieve <b>10-12% higher accuracy</b>
+                        than their closest robust counterparts,
+                        demonstrating <b>superior resilience</b> against <i>highly transferable adversarial attacks</i>.
+
+
+                    </h2>
+                </div>
+
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table3_4.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Comparison of various <b>vision encoders</b> integrated with LLaVA against <b>white-box</b> (<i><a href="https://arxiv.org/abs/2306.13213" target="_blank" style="color: #007bff; text-decoration: underline;">VisualAdv</a></i>)
+
+                        and <b>black-box</b> (<i><a href="https://arxiv.org/abs/2403.09792" target="_blank" style="color: #007bff; text-decoration: underline;">HADES</a></i>)
+ jailbreak attacks.
+                        The <b>white-box results</b> (Table 3) show that LLaVA with the <i>original CLIP encoder</i> is
+                        the <b>most vulnerable</b>, producing the highest number of toxic outputs.
+                        In contrast, our <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span>
+                        models <b>significantly reduce toxic content generation</b>.
+
+                        The <b>black-box results</b> (Table 4) highlight the effectiveness of different models against
+                        <i>HADES attacks</i>,
+                        with the <i>original CLIP encoder</i> exhibiting the <b>highest Attack Success Rate (ASR)</b>.
+                        In contrast, our <span><b>Robust-LLaVA</b></span> models achieve the <b>lowest ASR</b>,
+                        demonstrating <i>superior resilience</i> across multiple adversarial scenarios.
+                    </h2>
+                </div>
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table14.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Evaluation of <b>vision encoder ensembles</b> within the <b>MLLM framework</b>, assessing their
+                        <b>robustness</b> across multiple benchmarks.
+                        Our analysis reveals that an ensemble’s robustness is <i>limited by its weakest vision
+                        encoder</i>.
+
+                        Across all configurations, we observe that the <b>most vulnerable component</b> dictates the
+                        overall robustness,
+                        highlighting the <b>importance</b> of reinforcing individual vision encoders to <i>strengthen
+                        ensemble resilience</i>.
+
+                    </h2>
+                </div>
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table19_20.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Assessment of <b>prompt formatting strategies</b> during inference to enhance <b>model
+                        robustness</b> against <i>adversarial examples</i> in the <i>image captioning task</i>.
+                        Results reveal that <b>strategic prompt modifications</b> can <i>improve robustness</i>;
+                        however, this approach remains <b>susceptible</b> to <i>adaptive attacks</i>,
+                        where adversaries can incorporate the modified prompts to craft adversarial examples to <i>bypass
+                        these defenses</i>.
+                    </h2>
+                </div>
+                <div class="item" style="margin-bottom: 40px;">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table21.png"/>
+                    <!--        <h2 class="subtitle has-text-centered">-->
+                    <!--          Common Corruptions on Image Captioning Task-->
+                    <!--        </h2>-->
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img alt="MY ALT TEXT" src="static/images/Table22.png"/>
+                    <h2 class="subtitle has-text-centered">
+                        Analysis of <b>hallucination behavior</b> in <b>vision-language models</b> using the (<i><a href="https://arxiv.org/abs/2305.10355" target="_blank" style="color: #007bff; text-decoration: underline;">POPE dataset</a></i>)
+.
+                        Results indicate that ensembling <i>robust models</i> with CLIP enhances <b>hallucination
+                        mitigation</b>. However, this trend <i>does not hold</i> for ensembles
+                        incorporating the adversarially fine-tuned CLIP variant, <span><b><a
+                            href="https://arxiv.org/abs/2402.12336" target="_blank"
+                            style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>,
+                        which exhibits <b>reduced generalization</b>.
+
+                        Among robust models, <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span>
+                        demonstrate the <b>best performance</b>
+                        in mitigating <i>object hallucinations</i>, showcasing <b>superior reliability</b> in object
+                        recognition while maintaining robustness.
+
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--    &lt;!&ndash; Youtube video &ndash;&gt;-->
+    <!--    <section class="hero is-small is-light">-->
+    <!--        <div class="hero-body">-->
+    <!--            <div class="container">-->
+    <!--                &lt;!&ndash; Paper video. &ndash;&gt;-->
+    <!--                <h2 class="title is-3">Video Presentation</h2>-->
+    <!--                <div class="columns is-centered has-text-centered">-->
+    <!--                    <div class="column is-four-fifths">-->
+
+    <!--                        <div class="publication-video">-->
+    <!--                            &lt;!&ndash; Youtube embed code here &ndash;&gt;-->
+    <!--                            <iframe allow="autoplay; encrypted-media" allowfullscreen frameborder="0"-->
+    <!--                                    src="https://www.youtube.com/embed/JkaxUblCGz0"></iframe>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <!--    &lt;!&ndash; End youtube video &ndash;&gt;-->
+
+
+    <!--    &lt;!&ndash; Video carousel &ndash;&gt;-->
+    <!--    <section class="hero is-small">-->
+    <!--        <div class="hero-body">-->
+    <!--            <div class="container">-->
+    <!--                <h2 class="title is-3">Another Carousel</h2>-->
+    <!--                <div class="carousel results-carousel" id="results-carousel">-->
+    <!--                    <div class="item item-video1">-->
+    <!--                        <video autoplay controls height="100%" id="video1" loop muted poster="">-->
+    <!--                            &lt;!&ndash; Your video file here &ndash;&gt;-->
+    <!--                            <source src="static/videos/carousel1.mp4"-->
+    <!--                                    type="video/mp4">-->
+    <!--                        </video>-->
+    <!--                    </div>-->
+    <!--                    <div class="item item-video2">-->
+    <!--                        <video autoplay controls height="100%" id="video2" loop muted poster="">-->
+    <!--                            &lt;!&ndash; Your video file here &ndash;&gt;-->
+    <!--                            <source src="static/videos/carousel2.mp4"-->
+    <!--                                    type="video/mp4">-->
+    <!--                        </video>-->
+    <!--                    </div>-->
+    <!--                    <div class="item item-video3">-->
+    <!--                        <video autoplay controls height="100%" id="video3" loop muted poster="">\-->
+    <!--                            &lt;!&ndash; Your video file here &ndash;&gt;-->
+    <!--                            <source src="static/videos/carousel3.mp4"-->
+    <!--                                    type="video/mp4">-->
+    <!--                        </video>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <!--    &lt;!&ndash; End video carousel &ndash;&gt;-->
+
+
+    <!--    &lt;!&ndash; Paper poster &ndash;&gt;-->
+    <!--    <section class="hero is-small is-light">-->
+    <!--        <div class="hero-body">-->
+    <!--            <div class="container">-->
+    <!--                <h2 class="title">Poster</h2>-->
+
+    <!--                <iframe height="550" src="static/pdfs/sample.pdf" width="100%">-->
+    <!--                </iframe>-->
+
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <!--    &lt;!&ndash;End paper poster &ndash;&gt;-->
+
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{malik2025robust,
+  title={Robust-LLaVA: On the Effectiveness of Large-Scale Robust Image Encoders for Multi-modal Large Language Models},
+  author={Malik, Hashmat Shadab and Shamshad, Fahad and Naseer, Muzammal and Nandakumar, Karthik and Khan, Fahad and Khan, Salman},
+  journal={arXiv preprint arXiv:2502.01576},
+  year={2025}
+}</code></pre>
+        </div>
+    </section>
+    <!--End BibTex citation -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+
+                        <p>
+                            This page was built using the <a
+                                href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
+                            Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io"
+                                                                                    target="_blank">Nerfies</a> project
+                            page.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+
+</body>
+</html>
