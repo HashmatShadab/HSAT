@@ -24,8 +24,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
 
-    <title>Robust-LLaVA: On the Effectiveness of Large-Scale Robust Image Encoders for Multi-modal Large Language
-        Models</title>
+    <title>HSAT:Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology</title>
     <link href="static/images/favicon.ico" rel="icon" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
@@ -60,13 +59,10 @@
                         <span class="author-block">
                 <a href="https://scholar.google.com/citations?user=2Ft7r4AAAAAJ&hl=en" target="_blank">Hashmat Shadab Malik</a><sup>1</sup>,</span>
                         <span class="author-block">
-                  <a href="https://scholar.google.com.pk/citations?hl=en&user=d7QL4wkAAAAJ&view_op=list_works&sortby=pubdate"
-                     target="_blank">Fahad Shamshad</a><sup>1</sup>,</span>
+                  <a href="https://github.com/ShahinaKK"
+                     target="_blank">Shahina Kunhimon</a><sup>1</sup>,</span>
                         <span class="author-block">
                     <a href="https://scholar.google.com/citations?user=tM9xKA8AAAAJ&hl=en" target="_blank">Muzammal Naseer</a><sup>2</sup>,</span>
-                        </span>
-                        <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=2qx0RnEAAAAJ&hl=en" target="_blank">Karthik Nandakumar</a><sup>3</sup>,</span>
                         </span>
                         <span class="author-block">
                         <a href="https://scholar.google.com/citations?user=zvaeYnUAAAAJ&hl=en" target="_blank">Fahad Shahbaz Khan</a><sup>1,4</sup>,</span>
@@ -89,28 +85,28 @@
                     <div class="column has-text-centered">
                         <div class="publication-links">
                             <!-- Arxiv PDF link -->
-<!--                            <span class="link-block">-->
-<!--                        <a class="external-link button is-normal is-rounded is-dark"-->
-<!--                           href="https://arxiv.org/pdf/2403.04701.pdf"-->
-<!--                           target="_blank">-->
-<!--                        <span class="icon">-->
-<!--                          <i class="fas fa-file-pdf"></i>-->
-<!--                        </span>-->
-<!--                        <span>Paper</span>-->
-<!--                      </a>-->
-<!--                    </span>-->
+                            <!--                            <span class="link-block">-->
+                            <!--                        <a class="external-link button is-normal is-rounded is-dark"-->
+                            <!--                           href="https://arxiv.org/pdf/2403.04701.pdf"-->
+                            <!--                           target="_blank">-->
+                            <!--                        <span class="icon">-->
+                            <!--                          <i class="fas fa-file-pdf"></i>-->
+                            <!--                        </span>-->
+                            <!--                        <span>Paper</span>-->
+                            <!--                      </a>-->
+                            <!--                    </span>-->
 
-<!--                            &lt;!&ndash; Supplementary PDF link &ndash;&gt;-->
-<!--                            <span class="link-block">-->
-<!--                      <a class="external-link button is-normal is-rounded is-dark" href="static/pdfs/sample.pdf"-->
-<!--                         target="_blank">-->
-<!--                      <span class="icon">-->
-<!--                        <i class="fas fa-file-pdf"></i>-->
-<!--                      </span>-->
-<!--                      <span>Supplementary</span>-->
-<!--                    </a>-->
-<!--                  </span>-->
-     <!-- ArXiv abstract Link -->
+                            <!--                            &lt;!&ndash; Supplementary PDF link &ndash;&gt;-->
+                            <!--                            <span class="link-block">-->
+                            <!--                      <a class="external-link button is-normal is-rounded is-dark" href="static/pdfs/sample.pdf"-->
+                            <!--                         target="_blank">-->
+                            <!--                      <span class="icon">-->
+                            <!--                        <i class="fas fa-file-pdf"></i>-->
+                            <!--                      </span>-->
+                            <!--                      <span>Supplementary</span>-->
+                            <!--                    </a>-->
+                            <!--                  </span>-->
+                            <!-- ArXiv abstract Link -->
                             <span class="link-block">
                   <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2502.01576"
                      target="_blank">
@@ -132,17 +128,17 @@
                   </a>
                 </span>
 
-                                                        <!-- Model Zoo (Google Drive) link -->
-            <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark"
-                   href="https://drive.google.com/drive/folders/1mt5zbiWi_ZYNJyDCpJ33Zc3AFZ9NxaLr?usp=sharing"
-                   target="_blank">
-                    <span class="icon">
-                        <i class="fas fa-hdd"></i> <!-- Hard drive icon -->
-                    </span>
-                    <span>Model Weights</span>
-                </a>
-            </span>
+                            <!-- Model Zoo (Google Drive) link -->
+                            <!--            <span class="link-block">-->
+                            <!--                <a class="external-link button is-normal is-rounded is-dark"-->
+                            <!--                   href="https://drive.google.com/drive/folders/1mt5zbiWi_ZYNJyDCpJ33Zc3AFZ9NxaLr?usp=sharing"-->
+                            <!--                   target="_blank">-->
+                            <!--                    <span class="icon">-->
+                            <!--                        <i class="fas fa-hdd"></i> &lt;!&ndash; Hard drive icon &ndash;&gt;-->
+                            <!--                    </span>-->
+                            <!--                    <span>Model Weights</span>-->
+                            <!--                </a>-->
+                            <!--            </span>-->
 
 
                         </div>
@@ -173,42 +169,60 @@
 <!--&lt;!&ndash; End teaser video &ndash;&gt;-->
 
 
-
 <section class="hero teaser">
     <div class="container is-max-desktop">
         <div class="hero-body">
-<img src="./static/images/alog_align.png"><br>
+            <img src="./static/images/conceptfigure.png"><br>
             <h2 class="subtitle has-text-centered">
                 <p align="justify">
-                    Current multi-modal large language models (MLLMs) struggle to achieve <b>high adversarial robustness</b> while maintaining strong
-<b>vision-language reasoning</b>. Methods such as <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
-                                style="color: #007bff; text-decoration: underline;">TeCoA</a></b></span>, <span><b><a href="https://arxiv.org/abs/2212.07016" target="_blank"
-                                style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>, and <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
-                                style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span> perform constrained adversarial
-fine-tuning of CLIP to <i>preserve the generalization capabilities</i> of the pre-trained model.
+                    Current multi-modal large language models (MLLMs) struggle to achieve <b>high adversarial
+                    robustness</b> while maintaining strong
+                    <b>vision-language reasoning</b>. Methods such as <span><b><a
+                        href="https://arxiv.org/abs/2409.07353" target="_blank"
+                        style="color: #007bff; text-decoration: underline;">TeCoA</a></b></span>, <span><b><a
+                        href="https://arxiv.org/abs/2212.07016" target="_blank"
+                        style="color: #007bff; text-decoration: underline;">FARE<sup>4</sup></a></b></span>, and
+                    <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
+                                style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
+                    perform constrained adversarial
+                    fine-tuning of CLIP to <i>preserve the generalization capabilities</i> of the pre-trained model.
 
-However, this limited adversarial training results in only <b>modest robustness gains</b> when the model is integrated into an
-MLLM framework. Moreover, the misalignment between adversarial CLIP training objectives and MLLMs' <b>generative understanding</b>
-creates a <b>semantic alignment gap</b>, impairing MLLMs' ability to perform <i>complex visual reasoning</i>.
+                    However, this limited adversarial training results in only <b>modest robustness gains</b> when the
+                    model is integrated into an
+                    MLLM framework. Moreover, the misalignment between adversarial CLIP training objectives and MLLMs'
+                    <b>generative understanding</b>
+                    creates a <b>semantic alignment gap</b>, impairing MLLMs' ability to perform <i>complex visual
+                    reasoning</i>.
 
-This leads us to explore whether current <b>large-scale adversarially pre-trained vision encoders</b>, which contain
-<i>rich robust representations</i>, can exhibit <b>strong semantic alignment</b> within the MLLM framework.
+                    This leads us to explore whether current <b>large-scale adversarially pre-trained vision
+                    encoders</b>, which contain
+                    <i>rich robust representations</i>, can exhibit <b>strong semantic alignment</b> within the MLLM
+                    framework.
 
                 <div style="background-color: #f0f8ff; padding: 10px; border-radius: 5px; margin-bottom: 10px; text-align: justify;">
-    <b><span style="color: blue;">Left:</span></b> We investigate the <b>multimodal alignment of robust encoders</b> by aligning
-    the feature space of robust encoders using a <b>linear layer</b> with the pre-trained CLIP model, which has a strong multimodal
-    feature representation. We then align robust encoders with CLIP’s text encoder to evaluate <b>robust zero-shot performance</b>,
-    in order to assess their robust multimodal alignment.
-</div>
+                    <b><span style="color: blue;">Left:</span></b> We investigate the <b>multimodal alignment of robust
+                    encoders</b> by aligning
+                    the feature space of robust encoders using a <b>linear layer</b> with the pre-trained CLIP model,
+                    which has a strong multimodal
+                    feature representation. We then align robust encoders with CLIP’s text encoder to evaluate <b>robust
+                    zero-shot performance</b>,
+                    in order to assess their robust multimodal alignment.
+                </div>
 
-<div style="background-color: #ffe4e1; padding: 10px; border-radius: 5px; text-align: justify;">
-    <b><span style="color: blue;">Right:</span></b> The results demonstrate a <b>strong correlation</b> between <b>model scale</b>,
-    <b>training strategy</b>, and <b>robustness preservation</b> during CLIP alignment. <i>Small-scale models</i> (e.g., ViT-B and
-    ResNet-101) suffer <b>significant robustness degradation</b> post-alignment, with accuracy dropping <i>below 60%</i> across
-    all datasets. In contrast, <b>large-scale models</b> (ViT-H and ViT-G) successfully <b>retain their robustness</b> while acquiring
-<i>robust zero-shot capabilities</i>. Leveraging this insight, we integrate these robust encoders into the <b>LLaVA framework</b>,
-achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in MLLMs <i>without additional specialized adversarial training</i>.
-</div>
+                <div style="background-color: #ffe4e1; padding: 10px; border-radius: 5px; text-align: justify;">
+                    <b><span style="color: blue;">Right:</span></b> The results demonstrate a <b>strong correlation</b>
+                    between <b>model scale</b>,
+                    <b>training strategy</b>, and <b>robustness preservation</b> during CLIP alignment. <i>Small-scale
+                    models</i> (e.g., ViT-B and
+                    ResNet-101) suffer <b>significant robustness degradation</b> post-alignment, with accuracy dropping
+                    <i>below 60%</i> across
+                    all datasets. In contrast, <b>large-scale models</b> (ViT-H and ViT-G) successfully <b>retain their
+                    robustness</b> while acquiring
+                    <i>robust zero-shot capabilities</i>. Leveraging this insight, we integrate these robust encoders
+                    into the <b>LLaVA framework</b>,
+                    achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in MLLMs <i>without
+                    additional specialized adversarial training</i>.
+                </div>
 
             </h2>
         </div>
@@ -231,7 +245,8 @@ achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in 
                     <span><b><a href="https://arxiv.org/abs/2409.07353" target="_blank"
                                 style="color: #007bff; text-decoration: underline;">Sim-CLIP<sup>4</sup></a></b></span>
                     in <b>robustness score across all tasks and diverse datasets</b>, while <i>maintaining high clean
-                        performance</i>. (Accuracy is reported for VQAv2 and TextVQA, while CIDER score is reported for Flickr30k and COCO).
+                        performance</i>. (Accuracy is reported for VQAv2 and TextVQA, while CIDER score is reported for
+                    Flickr30k and COCO).
 
                 </p>
             </h2>
@@ -247,28 +262,20 @@ achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in 
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-                        Multi-modal Large Language Models (MLLMs) have demonstrated impressive capabilities in
-                        vision-language tasks, but their reliance on visual processing introduces critical security
-                        vulnerabilities. Their vision encoders remain susceptible to adversarial perturbations that can
-                        induce hallucinations, manipulate responses, or bypass safety mechanisms while maintaining
-                        coherent language generation. Current approaches attempt to address this by adversarially
-                        fine-tuning CLIP vision encoders on ImageNet-scale data, but exhibit inherent limitations in
-                        both robustness and generalization due to the restricted scale and diversity of adversarial
-                        training.
-                        In this work, we present an alternative approach by leveraging vision encoders adversarially
-                        pre-trained on billion-scale image-text pairs.
-                        Our analysis reveals two principal contributions:
-                        (1) the extensive scale and diversity of adversarial pre-training enables these encoders to
-                        demonstrate superior robustness against diverse adversarial threats, ranging from imperceptible
-                        perturbations to advanced jailbreaking attempts, and (2) end-to-end MLLM optimization with these
-                        robust encoders facilitates enhanced adaptation of language components to robust visual
-                        features, substantially outperforming existing plug-and-play methodologies on complex reasoning
-                        tasks.
-                        Through systematic evaluation across visual question-answering, image captioning, and jail-break
-                        attacks, we demonstrate that MLLMs trained with these robust encoders achieve superior
-                        adversarial robustness while maintaining favorable clean performance. Our framework achieves 2x
-                        and 1.5x average robustness gains in captioning and VQA tasks, respectively, and delivers over
-                        10% improvement against advanced jailbreaking attacks compared to state-of-the-art methods.
+                        Adversarial attacks pose significant challenges for vision models in critical fields like
+                        healthcare, where reliability is essential. Although adversarial training has been well studied
+                        in natural images, its application to biomedical and microscopy data remains limited. Existing
+                        self-supervised adversarial training methods overlook the hierarchical structure of
+                        histopathology images, where patient-slide-patch relationships provide valuable discriminative
+                        signals. To address this, we propose Hierarchical Self-Supervised Adversarial Training (HSAT),
+                        which exploits these properties to craft adversarial examples using multi-level contrastive
+                        learning and integrate it into adversarial training for enhanced robustness. We evaluate HSAT on
+                        multiclass histopathology cancer diagnosis dataset OpenSRH and the results show that HSAT
+                        outperforms existing methods from both biomedical and natural image domains. HSAT enhances
+                        robustness, achieving an average gain of 54.31% in the white-box setting and reducing
+                        performance drops to 3-4% in the black-box setting, compared to 25-30% for the baseline. These
+                        results set a new benchmark for adversarial training in this domain, paving the way for more
+                        robust models. Our code and pretrained models will be made publicly available.
                     </p>
                 </div>
             </div>
@@ -753,10 +760,13 @@ achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in 
                     <!-- Your image here -->
                     <img alt="MY ALT TEXT" src="static/images/Table3_4.png"/>
                     <h2 class="subtitle has-text-centered">
-                        Comparison of various <b>vision encoders</b> integrated with LLaVA against <b>white-box</b> (<i><a href="https://arxiv.org/abs/2306.13213" target="_blank" style="color: #007bff; text-decoration: underline;">VisualAdv</a></i>)
+                        Comparison of various <b>vision encoders</b> integrated with LLaVA against <b>white-box</b> (<i><a
+                            href="https://arxiv.org/abs/2306.13213" target="_blank"
+                            style="color: #007bff; text-decoration: underline;">VisualAdv</a></i>)
 
-                        and <b>black-box</b> (<i><a href="https://arxiv.org/abs/2403.09792" target="_blank" style="color: #007bff; text-decoration: underline;">HADES</a></i>)
- jailbreak attacks.
+                        and <b>black-box</b> (<i><a href="https://arxiv.org/abs/2403.09792" target="_blank"
+                                                    style="color: #007bff; text-decoration: underline;">HADES</a></i>)
+                        jailbreak attacks.
                         The <b>white-box results</b> (Table 3) show that LLaVA with the <i>original CLIP encoder</i> is
                         the <b>most vulnerable</b>, producing the highest number of toxic outputs.
                         In contrast, our <span><b>Robust-LLaVA<sup>4</sup><sub>G</sub></b></span> and <span><b>Robust-LLaVA<sup>4</sup><sub>H</sub></b></span>
@@ -808,8 +818,10 @@ achieving <b>strong adversarial robustness</b> and <b>semantic alignment</b> in 
                     <!-- Your image here -->
                     <img alt="MY ALT TEXT" src="static/images/Table22.png"/>
                     <h2 class="subtitle has-text-centered">
-                        Analysis of <b>hallucination behavior</b> in <b>vision-language models</b> using the (<i><a href="https://arxiv.org/abs/2305.10355" target="_blank" style="color: #007bff; text-decoration: underline;">POPE dataset</a></i>)
-.
+                        Analysis of <b>hallucination behavior</b> in <b>vision-language models</b> using the (<i><a
+                            href="https://arxiv.org/abs/2305.10355" target="_blank"
+                            style="color: #007bff; text-decoration: underline;">POPE dataset</a></i>)
+                        .
                         Results indicate that ensembling <i>robust models</i> with CLIP enhances <b>hallucination
                         mitigation</b>. However, this trend <i>does not hold</i> for ensembles
                         incorporating the adversarially fine-tuned CLIP variant, <span><b><a
