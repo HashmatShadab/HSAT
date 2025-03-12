@@ -262,6 +262,8 @@ folder.
 
 ## 🛡️ Robustness against White-Box Attacks
 
+For evaluating the robustness of vision models against white-box adversarial attacks, we provide the following script:
+
 ```python
 python adv_eval_knn.py --data_db_root <DATA_PATH>  --model_backbone <MODEL_NAME>  --eval_ckpt_path <CKPT_PATH> --save_results_path <CKPT_DIR>/eval_knn_results /
 --eps <EPSILON> --steps <STEPS> --eval_predict_batch_size <EVAL_BATCH_SIZE> --attack_name <ATTACK_NAME> 
@@ -311,66 +313,30 @@ reported by evaluating them on unseen target models trained on the same dataset.
 To evaluate any target model on the adversarial examples, run the following script:
 
 ```python
-# Transferability on BTCV adversarial examples
-python
-inference_on_adv_images.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-14 - -checkpoint_path < BTCV_MODEL_CKPT_PATH > --dataset
-btcv
---data_dir = < ORIG_BTCV_DATA_PATH > --json_list
-dataset_synapse_18_12.json - -adv_imgs_dir < PATH_TO_BTCV_ADVERSARIAL_IMAGES >
-
-# Transferability on Hecktor adversarial examples
-python
-inference_on_adv_images.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-3 - -checkpoint_path < HECKTOR_MODEL_CKPT_PATH > --dataset
-hecktor
---data_dir = < ORIG_HECKTOR_DATA_PATH > --json_list
-dataset_hecktor.json - -adv_imgs_dir < PATH_TO_HECKTOR_ADVERSARIAL_IMAGES >
-
-# Transferability on ACDC adversarial examples
-python
-inference_on_adv_images.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-4 - -checkpoint_path < ACDC_MODEL_CKPT_PATH > --dataset
-acdc
---data_dir = < ORIG_ACDC_DATA_PATH > --json_list
-dataset_acdc_140_20_.json - -adv_imgs_dir < PATH_TO_ACDC_ADVERSARIAL_IMAGES >
-
-# Transferability on Abdomen-CT adversarial examples
-python
-inference_on_adv_images.py - -model_name < MODEL_NAME > --in_channels
-1 - -out_channel
-14 - -checkpoint_path < ABDOMEN_MODEL_CKPT_PATH > --dataset
-abdomen
---data_dir = < ORIG_ABDOMEN_DATA_PATH > --json_list
-dataset_abdomen.json - -adv_imgs_dir < PATH_TO_ABDOMEN_ADVERSARIAL_IMAGES >
+ python adv_eval_knn_transf.py --data_db_root <DATA_PATH>  --source_model_backbone <SOURCE_MODEL_NAME> --source_exp_no <SOURCE_EXP_NUMBER>   \
+--source_ckpt_path <SOURCE_CKPT_PATH> --target_model_backbone <TARGET_MODEL_NAME> --target_exp_no <TARGET_EXP_NUMBER> \
+--target_ckpt_path <TARGET_CKPT_PATH>  --save_results_path  <PATH_TO_SAVE_RESULTS> --eps <EPSILON> --steps <STEPS>  --load_source_from_ssl True
 ```
+
+- `<DATA_PATH>`: Path to the dataset.
+- `<SOURCE_MODEL_NAME>`: Name of the source model backbone.
+- `<SOURCE_EXP_NUMBER>`: Experiment number of the source model 
+- `<SOURCE_CKPT_PATH>`: Path to the source model checkpoint.
+- `<TARGET_MODEL_NAME>`: Name of the target model backbone.
+- `<TARGET_EXP_NUMBER>`: Experiment number of the target model.
+- `<TARGET_CKPT_PATH>`: Path to the target model checkpoint.
+- `<PATH_TO_SAVE_RESULTS>`: Path to save the evaluation results.
+- `<EPSILON>`: Perturbation budget for adversarial attacks.
+- `<STEPS>`: Number of attack steps for iterative attacks.
+
 
 Furthermore, bash scripts are provided to evaluate transferability of adversarial examples across different models(given
 the adversarial examples are generated first across all models and datasets):
 
 ```python
-# Transferability of BTCV adversarial examples across all models
-bash
-scripts / btcv / transferability.sh
 
-# Transferability of Hecktor adversarial examples across all models
-bash
-scripts / hecktor / transferability.sh
-
-# Transferability of ACDC adversarial examples across all models
-bash
-scripts / acdc / transferability.sh
-
-# Transferability of Abdomen-CT adversarial examples across all models
-bash
-scripts / abdomen / transferability.sh
 ```
 
-The evaluation logs for target models will be saved in the same folder as from where the adversarial examples were
-loaded.
 
 ## Quantitative Evaluation 📊
 

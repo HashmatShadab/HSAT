@@ -371,17 +371,20 @@ def main():
 
 
     experiments = {
-        18: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
-        19: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
-        20: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
-        28: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
-        244: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
-        24: {"model.num_embedding_out": 256, "model.proj_head": False, "model.mlp_hidden": []},
-        25: {"model.num_embedding_out": 512, "model.proj_head": False, "model.mlp_hidden": []},
-        26: {"model.num_embedding_out": 768, "model.proj_head": False, "model.mlp_hidden": []},
-        27: {"model.num_embedding_out": 1024, "model.proj_head": False, "model.mlp_hidden": []},
-        29: {"model.num_embedding_out": 2048, "model.proj_head": True, "model.mlp_hidden": []},
-        30: {"model.num_embedding_out": 2048, "model.proj_head": False, "model.mlp_hidden": [2048, 2048]}
+        1: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        2: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        3: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        4: {"model.num_embedding_out": 256, "model.proj_head": False, "model.mlp_hidden": []},
+        5: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        6: {"model.num_embedding_out": 512, "model.proj_head": False, "model.mlp_hidden": []},
+        7: {"model.num_embedding_out": 768, "model.proj_head": False, "model.mlp_hidden": []},
+        8: {"model.num_embedding_out": 1024, "model.proj_head": False, "model.mlp_hidden": []},
+        9: {"model.num_embedding_out": 2048, "model.proj_head": True, "model.mlp_hidden": []},
+        10: {"model.num_embedding_out": 2048, "model.proj_head": False, "model.mlp_hidden": [2048, 2048]},
+        11: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        12: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        13: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
+        14: {"model.num_embedding_out": 128, "model.proj_head": False, "model.mlp_hidden": []},
     }
 
     cf = get_args()
