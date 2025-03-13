@@ -7,6 +7,8 @@
 and [Salman Khan](https://salman-h-khan.github.io)
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)]()
+[![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://hashmatshadab.github.io/HSAT/)
+
 
 [//]: # ([![Video]&#40;https://img.shields.io/badge/Video-Presentation-F9D371&#41;]&#40;https://drive.google.com/file/d/1ZdUV83RvyL4mqCyxlqqD468VbRRAGdDY/view?usp=sharing&#41;)
 
