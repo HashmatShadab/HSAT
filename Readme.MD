@@ -371,7 +371,7 @@ show a performance drop of around <b>25-30%</b>.
     <img src="./assets/table3_4.png" alt="Robust-LLaVA Diagram" width="800">
 
 <p align="justify">
-Ablation studies for <i>Hierarchical Adversarial Training</i> (<tt>HSAT</tt>) in Tables <b>3</b> and <b>4</b> show that increasing hierarchical discrimination—progressing from patch-level (<tt>HSAT-Patch</tt>) to slide-level (<tt>HSAT-Slide</tt>) and patient-level (<tt>HSAT-Patient</tt>)—consistently improves adversarial robustness. Table <b>2</b> further reveals that combining loss terms, from patch-level <b>𝓛<sub>con</sub><sup>patch</sup></b> to slide-level <b>𝓛<sub>con</sub><sup>slide</sup></b> and patient-level <b>𝓛<sub>con</sub><sup>patient</sup></b>, enhances model resilience. These results highlight the effectiveness of multi-level adversarial training in aligning robust representations across hierarchical levels.
+Ablation studies for <i>Hierarchical Adversarial Training</i> (<tt>HSAT</tt>) in Tables <b>3</b> and <b>4</b> show that increasing hierarchical discrimination—progressing from patch-level (<tt>HSAT-Patch</tt>) to slide-level (<tt>HSAT-Slide</tt>) and patient-level (<tt>HSAT-Patient</tt>)—consistently improves adversarial robustness. These results highlight the effectiveness of multi-level adversarial training in aligning robust representations across hierarchical levels.
 </p>
 
 </div>
