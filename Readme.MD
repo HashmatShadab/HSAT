@@ -21,7 +21,7 @@ Official PyTorch implementation
 
 # :fire: News
 
-* **(March 12, 2025)**
+* **(March 13, 2025)**
     * We open source the code for model training and evaluation.
 
 <hr />
