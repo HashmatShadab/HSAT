@@ -188,7 +188,7 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     training.attack.eps=8 \
     training.attack.warmup_epochs=5000 \
     training.attack.loss_type=p_s_pt \
-    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 (exp2 for HSAT training) \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
     wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_exp2 \
     wandb.use=True
 ```
@@ -206,6 +206,7 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     - `s_pt` is the combination of the slide-level and patch-level contrastive losses.
 - **`training.only_adv:`** Set to False if you want to include clean samples as well during adversarial training.
 
+`(exp2 for HSAT training)`
 
 To train different vision models on the OpenSRH dataset with the proposed Hierarchical Self-Supervised Adversarial
 Training (HSAT) approach but using
@@ -226,10 +227,11 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     training.attack.eps=8 \
     training.attack.warmup_epochs=5000 \
     training.attack.loss_type=p_s_pt \
-    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 (exp13 for HSAT-Patch) \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13  \
     wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_patch_exp13 \
     wandb.use=True
 ```
+`(exp13 for HSAT-Patch training)`
 
 ```python
 #  HAT-Slide Testing the effect of patch-slide loss only (L_max = L_min) on the adversarial training. Increase the batch size accordingly to keep the same effective batch size.
@@ -245,10 +247,11 @@ torchrun --nproc_per_node=<NUM_GPUS> main.py \
     training.attack.eps=8 \
     training.attack.warmup_epochs=5000 \
     training.attack.loss_type=p_s_pt \
-    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 (exp14 for HSAT-Slide) \
+    out_dir=Results/Adv/<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14  \
     wandb.exp_name=Adv_backbone_<MODEL_NAME>_dynamicaug_true_epsilon_warmup_5000_only_adv_hat_slide_exp14 \
     wandb.use=True
 ```
+`(exp14 for HSAT-Slide training)`
 
 We provide bash scripts to train different vision models on the OpenSRH dataset with the baseline and proposed
 Hierarchical Self-Supervised Adversarial Training (HSAT) approach.
