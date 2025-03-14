@@ -6,6 +6,8 @@
 [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en),
 and [Salman Khan](https://salman-h-khan.github.io)
 
+#### **Mohamed Bin Zayed University of Artificial Intelligence, Khalifa University, Linko ̈ping University, and Australian National University**
+
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2503.10629)
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://hashmatshadab.github.io/HSAT/)
 
@@ -15,6 +17,7 @@ and [Salman Khan](https://salman-h-khan.github.io)
 [//]: # ([![slides]&#40;https://img.shields.io/badge/Poster-PDF-87CEEB&#41;]&#40;https://drive.google.com/file/d/1fvR4KUFCAEFO7wZqr-f8isk5FYMQvsT9/view?usp=sharing&#41;)
 
 [//]: # ([![slides]&#40;https://img.shields.io/badge/Presentation-Slides-B762C1&#41;]&#40;https://drive.google.com/file/d/1osaG-OsgUlODRfRqDPK6f79bOLmRcC42/view?usp=sharing&#41;)
+![](https://i.imgur.com/waxVImv.png)
 
 
 Official PyTorch implementation
@@ -25,6 +28,8 @@ Official PyTorch implementation
 
 * **(March 13, 2025)**
     * We open source the code for model training and evaluation.
+* **(March 14, 2025)**
+    * HSAT paper is released on [arxiv](https://arxiv.org/abs/2503.10629).
 
 <hr />
 
