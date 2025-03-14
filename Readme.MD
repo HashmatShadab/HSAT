@@ -26,10 +26,10 @@ Official PyTorch implementation
 
 # :fire: News
 
-* **(March 13, 2025)**
-    * We open source the code for model training and evaluation.
 * **(March 14, 2025)**
     * HSAT paper is released on [arxiv](https://arxiv.org/abs/2503.10629).
+* **(March 13, 2025)**
+    * We open source the code for model training and evaluation.
 
 <hr />
 
