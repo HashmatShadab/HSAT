@@ -394,17 +394,27 @@ Ablation studies for <i>Hierarchical Adversarial Training</i> (<tt>HSAT</tt>) in
 <a name="bibtex"/>
 
 ## 📚 BibTeX
+<div align="left">
 
 ```bibtex
-
+@misc{malik2025hierarchicalselfsupervisedadversarialtraining,
+      title={Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology}, 
+      author={Hashmat Shadab Malik and Shahina Kunhimon and Muzammal Naseer and Fahad Shahbaz Khan and Salman Khan},
+      year={2025},
+      eprint={2503.10629},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.10629}, 
+}
 ```
-
+</div>
 <hr />
 
 <a name="contact"/>
 
 ## 📧 Contact
 
+<div align="left">
 Should you have any question, please create an issue on this repository or contact at hashmat.malik@mbzuai.ac.ae
 
 <hr />
@@ -416,4 +426,5 @@ Should you have any question, please create an issue on this repository or conta
 Our code is based
 on [hidisc](https://github.com/MLNeurosurg/hidisc). We thank them for open-sourcing their codebase.
 
+</div>
 
