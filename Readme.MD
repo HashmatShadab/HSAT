@@ -392,9 +392,9 @@ Ablation studies for <i>Hierarchical Adversarial Training</i> (<tt>HSAT</tt>) in
 
 
 <a name="bibtex"/>
+<div align="left">
 
 ## 📚 BibTeX
-<div align="left">
 
 ```bibtex
 @article{malik2025hierarchical,
@@ -408,10 +408,10 @@ Ablation studies for <i>Hierarchical Adversarial Training</i> (<tt>HSAT</tt>) in
 <hr />
 
 <a name="contact"/>
+<div align="left">
 
 ## 📧 Contact
 
-<div align="left">
 Should you have any question, please create an issue on this repository or contact at hashmat.malik@mbzuai.ac.ae
 
 <hr />
