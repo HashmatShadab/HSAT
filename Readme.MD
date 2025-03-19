@@ -397,14 +397,11 @@ Ablation studies for <i>Hierarchical Adversarial Training</i> (<tt>HSAT</tt>) in
 <div align="left">
 
 ```bibtex
-@misc{malik2025hierarchicalselfsupervisedadversarialtraining,
-      title={Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology}, 
-      author={Hashmat Shadab Malik and Shahina Kunhimon and Muzammal Naseer and Fahad Shahbaz Khan and Salman Khan},
-      year={2025},
-      eprint={2503.10629},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2503.10629}, 
+@article{malik2025hierarchical,
+  title={Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology},
+  author={Malik, Hashmat Shadab and Kunhimon, Shahina and Naseer, Muzammal and Khan, Fahad Shahbaz and Khan, Salman},
+  journal={arXiv preprint arXiv:2503.10629},
+  year={2025}
 }
 ```
 </div>
