@@ -26,6 +26,8 @@ Official PyTorch implementation
 
 # :fire: News
 
+* **(June 3, 2025)**
+    * We've released model weights for baseline and HSAT training. Check them out in the [Pre-trained Model Weights](#Pre-trained-Model-Weights) section.
 * **(March 14, 2025)**
     * HSAT paper is released on [arxiv](https://arxiv.org/abs/2503.10629).
 * **(March 13, 2025)**
@@ -70,12 +72,13 @@ We propose <tt>HSAT</tt>, a <b>min-max optimization framework</b> to learn <i>ro
 
 1) [Installation](#Installation)
 2) [Models and Data Preparation](#Models-and-Data-Preparation)
-3) [Training](#Training)
-4) [Robustness against White-Box Attacks](#Robustness-against-White-Box-Attacks)
-5) [Robustness against Transfer-Based Black-Box Attacks](#Robustness-against-Transfer-Based-Black-Box-Attacks)
-6) [BibTeX](#bibtex)
-7) [Contact](#contact)
-8) [References](#references)
+3) [Pre-trained Model Weights](#Pre-trained-Model-Weights)
+4) [Training](#Training)
+5) [Robustness against White-Box Attacks](#Robustness-against-White-Box-Attacks)
+6) [Robustness against Transfer-Based Black-Box Attacks](#Robustness-against-Transfer-Based-Black-Box-Attacks)
+7) [BibTeX](#bibtex)
+8) [Contact](#contact)
+9) [References](#references)
 
 <hr>
 <hr>
@@ -131,7 +134,25 @@ To access the **OpenSRH** dataset, please submit a data request [here](https://o
 
 ---
 
+<a name="Pre-trained-Model-Weights"/>
 
+## 🏋️ Pre-trained Model Weights
+
+We provide pre-trained model weights for both baseline (non-adversarial) training and our proposed Hierarchical Self-Supervised Adversarial Training (HSAT) approaches. These weights can be used for evaluation or as starting points for further fine-tuning.
+
+### 📦 Available Model Weights
+
+| Model Architecture | Baseline  | HSAT | 
+|-------------------|-----------|------|
+| ResNet-50 (Scratch) | [Download](https://drive.google.com/file/d/1k-ChG0rQwouf7f2nquvJ4KSYJw5qOu1p/view?usp=sharing) | [Download](https://drive.google.com/file/d/13FOcOfdJcDcOup3gqRpIiKHvqKv4xn6m/view?usp=sharing) | 
+| ResNet-50 (ImageNet Pretrained) | [Download](https://drive.google.com/file/d/1BOUVkV-QDzjdjYr2H8ebJoLfAle_a48P/view?usp=sharing) | [Download](https://drive.google.com/file/d/1vSxdXe1Jxr_6TRCAfy9HA68O_60-W9U4/view?usp=sharing) | 
+| ResNet-50 (Adversarial ImageNet Pretrained) | [Download](https://drive.google.com/file/d/1Xn0fhzWT13WWzLN3B1lMs9CUYZwyp0W7/view?usp=sharing) | [Download](https://drive.google.com/file/d/1kQvQnlI-p9rMdQx5MOfH1WECobdzcL5C/view?usp=sharing) | 
+| WResNet-50 (ImageNet Pretrained) | [Download](https://drive.google.com/file/d/1MO-0XEaFfoBNdrSYnTU44Q65cCtUHTea/view?usp=sharing) | [Download](https://drive.google.com/file/d/1t-6GWoY920Ge-7kGECQIkNMGx4B9_2hf/view?usp=sharing) | 
+| WResNet-50 (Adversarial ImageNet Pretrained) | [Download](https://drive.google.com/file/d/15LHhekA68UAC-LA0-UTcodcLLXUrHDsm/view?usp=sharing) | [Download](https://drive.google.com/file/d/1w6mKKPRZqL1eurJoYRUCCcnEIDDAx3FO/view?usp=sharing) | 
+
+
+
+---
 
 <a name="Training"/>
 
@@ -424,4 +445,3 @@ Our code is based
 on [hidisc](https://github.com/MLNeurosurg/hidisc). We thank them for open-sourcing their codebase.
 
 </div>
-
