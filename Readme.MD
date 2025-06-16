@@ -1,4 +1,4 @@
-# **HSAT: Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology**
+# **HSAT: Hierarchical Self-Supervised Adversarial Training for Robust Vision Models in Histopathology [MICCAI 2025]**
 
 [Hashmat Shadab Malik](https://github.com/HashmatShadab),
 [Shahina Kunhimon](https://github.com/ShahinaKK),
@@ -26,14 +26,17 @@ Official PyTorch implementation
 
 <hr />
 
-# :fire: News
+# 🔥 News
 
-* **(June 3, 2025)**
-    * We've released model weights for baseline and HSAT training. Check them out in the [Pre-trained Model Weights](#Pre-trained-Model-Weights) section.
-* **(March 14, 2025)**
-    * HSAT paper is released on [arxiv](https://arxiv.org/abs/2503.10629).
-* **(March 13, 2025)**
-    * We open source the code for model training and evaluation.
+# 🔥 News
+
+* 📅 **(June 17, 2025)**: 🎉 Our work has been **accepted to MICCAI 2025**! 🧠📈  
+
+* 📅 **(June 3, 2025)**: 📦 We've released **model weights** for both the **baseline** and **HSAT training**.  Check them out in the [Pre-trained Model Weights](#Pre-trained-Model-Weights) section.
+
+* 📅 **(March 14, 2025)**: 📝 Our **HSAT paper** is now available on [arXiv](https://arxiv.org/abs/2503.10629)! 🔬🧾  
+
+* 📅 **(March 13, 2025)**: 💻 We’ve **open-sourced the code** for model training and evaluation! 🛠️🧪  
 
 <hr />
 
