@@ -10,7 +10,7 @@ and [Salman Khan](https://salman-h-khan.github.io)
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2503.10629)
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://hashmatshadab.github.io/HSAT/)
-[![slides](https://img.shields.io/badge/Poster-PDF-87CEEB)](https://drive.google.com/file/d/1NIr5nDshvbiibod8ojbIVOouSONm1fix/view?usp=sharing)
+[![slides](https://img.shields.io/badge/Poster-PDF-87CEEB)](https://drive.google.com/file/d/1VM4fs9QosEzM6wPKoBuiikcNKr9TZNFj/view?usp=sharing)
 
 
 
