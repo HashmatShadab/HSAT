@@ -26,7 +26,6 @@ Official PyTorch implementation
 
 <hr />
 
-# 🔥 News
 
 # 🔥 News
 
